@@ -1,10 +1,10 @@
 # Site settings
-title: 标题
-SEOTitle: SEO标题
+title: DavidDay’s Blog
+SEOTitle: 戴伟来的博客|DavidDay's Blog
 header-img: img/common/home-bg.jpg
 email: daiweilai@foxmail.com
-description: "描述"
-keyword: "关键字1,关键字2"
+description: "在这里探索iOS的一切。"
+keyword: "戴伟来, 戴伟来的博客, daiweilai, David Day, DavidDay, 伟来, 董思雨, 个人博客, 个人网站, 技术博客, iOS, Cocoa, Apple, WWDC, iPone, develop, 移动开发, APP, 设计模式, 最佳实践"
 url: "http://daiweilai.github.io"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
 
@@ -58,8 +58,8 @@ duoshuo_share: true                     # set to false if you want to use Commen
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "侧边栏描述"
-sidebar-avatar: img/common/avatar.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-about-description: "正在努力探索iOS开发最佳实践。"
+sidebar-avatar: http://daiweilai.github.io/img/common/avatar.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
@@ -72,16 +72,10 @@ featured-condition-size: 0             # A tag will be featured if the size of i
 # Friends
 #friends: [
 #    {
-#        title: "天镶的博客",
-#        href: "http://lingyu.wang/"
+#        title: "",
+#        href: ""
 #    },{
-#        title: "Luke的自留地",
-#        href: "http://hmqk1995.github.io"
-#    },{
-#        title: "SmdCn's Blog",
-#        href: "http://blog.smdcn.net"
-#    },{
-#        title: "解旻的博客",
-#        href: "http://xieminis.me/"
+#        title: "",
+#        href: ""
 #    }
 #]
