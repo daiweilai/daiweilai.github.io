@@ -21,7 +21,7 @@ github_username:    daiweilai
 
 
 # Build settings
-gems: [jekyll-paginate]
+# gems: [jekyll-paginate]
 highlighter: pygments
 permalink: pretty
 paginate: 10
@@ -41,9 +41,8 @@ kramdown:
 
 
 # Duoshuo settings
-duoshuo_username: daiweilai
-# Share component is depend on Comment so we can NOT use share only.
-duoshuo_share: true                     # set to false if you want to use Comment without Sharing
+duoshuo_username: 14153507 # Share component is depend on Comment so we can NOT use share only.
+duoshuo_share: false                     # set to false if you want to use Comment without Sharing
 
 
 
