@@ -6,7 +6,9 @@ date:       2015-11-4 12:00:00
 author:     "David Day"
 header-img: "img/post/post-bg-2015.jpg"
 tags:
-    - 测试
+    - 前端开发
+    - JavaScript
+    - 翻译
 ---
 
 > “Yeah It's on. ”

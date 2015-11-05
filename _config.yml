@@ -5,7 +5,7 @@ header-img: img/common/home-bg.jpg
 email: daiweilai@foxmail.com
 description: "描述"
 keyword: "关键字1,关键字2"
-url: "http://daiweilai.github.io"              # your host, for absolute URL
+url: "http://127.0.0.1:4000"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
 
 
@@ -21,7 +21,7 @@ github_username:    daiweilai
 
 
 # Build settings
-# gems: [jekyll-paginate]
+gems: [jekyll-paginate]
 highlighter: pygments
 permalink: pretty
 paginate: 10
@@ -41,8 +41,8 @@ kramdown:
 
 
 # Duoshuo settings
-duoshuo_username: 14153507 # Share component is depend on Comment so we can NOT use share only.
-duoshuo_share: false                     # set to false if you want to use Comment without Sharing
+duoshuo_username: daiweilai # Share component is depend on Comment so we can NOT use share only.
+duoshuo_share: true                     # set to false if you want to use Comment without Sharing
 
 
 
@@ -65,7 +65,7 @@ sidebar-avatar: img/common/avatar.jpg      # use absolute URL, seeing it's used 
 
 # Featured Tags
 featured-tags: true                     # whether or not using Feature-Tags
-featured-condition-size: 1              # A tag will be featured if the size of it is more than this condition value
+featured-condition-size: 0             # A tag will be featured if the size of it is more than this condition value
 
 
 
