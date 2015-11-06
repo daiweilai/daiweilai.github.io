@@ -5,11 +5,51 @@ layout: default
 <!-- <img src="/img/icon_wechat.png" width="0" height="0"> -->
 <!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
 
+	
 <!-- Post Header -->
 <style type="text/css">
     header.intro-header{
         background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')
     }
+	
+	/*导航*/
+	.BlogAnchor {
+	    background: #ffffff;
+	    padding: 10px;
+	    line-height: 180%;
+	}
+	.BlogAnchor p {
+	    font-size: 18px;
+	    color: #15a230;
+	    margin-bottom: 0.3em;
+	}
+	.BlogAnchor .AnchorContent {
+	    padding: 5px 0px;
+	}
+	.BlogAnchor li{
+	    text-indent: 20px;
+	    font-size: 14px;
+	}
+	#AnchorContentToggle {
+	    font-size: 14px;
+	    font-weight: normal;
+	    color: #FFF;
+	    display: inline-block;
+	    line-height: 30px;
+	    background: #5cc26f;
+	    font-style: normal;
+	    padding: 1px 20px;
+	    margin-right: 10px;
+	}
+	.BlogAnchor a:hover {
+	    color: #5cc26f;
+	}
+	.BlogAnchor a {
+	    text-decoration: none;
+	}
+	
+
+	
 </style>
 <header class="intro-header" >
     <div class="container">
@@ -45,6 +85,14 @@ layout: default
                 col-lg-8 col-lg-offset-2
                 col-md-10 col-md-offset-1
                 post-container">
+
+
+<div class="BlogAnchor">
+    <p>
+        <b id="AnchorContentToggle" title="收起" style="cursor:pointer;">目录[+]</b>
+    </p>
+    <div class="AnchorContent" id="AnchorContent"> </div>
+</div>
 
 				{{ content }}
 
@@ -141,8 +189,36 @@ layout: default
         </div>
     </div>
 </article>
+<script src="//cdn.bootcss.com/jquery/3.0.0-alpha1/jquery.js"></script>
+<script>
+console.log($);
+$(".container").find("h2,h3,h4,h5,h6").each(function(i,item){
+    var tag = $(item).get(0).localName;
+    $(item).attr("id","wow"+i);
+    $("#AnchorContent").append('<li><a class="new'+tag+' anchor-link" onclick="return false;" href="#" link="#wow'+i+'">'+(i+1)+" · "+$(this).text()+'</a></li>');
+    $(".newh2").css("margin-left",0);
+    $(".newh3").css("margin-left",20);
+    $(".newh4").css("margin-left",40);
+    $(".newh5").css("margin-left",60);
+    $(".newh6").css("margin-left",80);
+});
+$("#AnchorContent").toggle();
+$("#AnchorContentToggle").click(function(){
+    var text = $(this).html();
+    if(text=="目录[-]"){
+        $(this).html("目录[+]");
+        $(this).attr({"title":"展开"});
+    }else{
+        $(this).html("目录[-]");
+        $(this).attr({"title":"收起"});
+    }
+    $("#AnchorContent").toggle();
+});
 
-
+$(".anchor-link").click(function(){
+    $("html,body").animate({scrollTop: $($(this).attr("link")).offset().top}, 1000);
+});
+</script>
 {% if site.duoshuo_username %}
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
@@ -199,3 +275,4 @@ layout: default
     }
 </style>
 {% endif %}
+

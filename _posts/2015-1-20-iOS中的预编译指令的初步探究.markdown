@@ -101,7 +101,7 @@ tags:
 
 **附上那头小牛**
 
-``` objective-c
+``` objectivec
 
 #define NSLog(format, ...)   fprintf(stderr, "<%s : %d> %s\n",                                           \
 
@@ -125,7 +125,7 @@ fprintf(stderr, "\n ------------------\n/ Hello David Day! \\\n\\ my Macro Log ~
 
 **当你使用了#define宏定义后，则在整个程序的运行周期内这个宏都是有效的，但有时候我们在某个逻辑里希望这个宏失效不想使用，则会使用**
 
-``` objective-c
+``` objectivec
 #define NetworkOn //定义一个宏，如果该宏定义了，则在应用里使用网络
 
 -(void)closeNetwork{//突然发生意外的情况，网络无法使用了，调用该方法，取消NetworkOn的宏定义
@@ -160,7 +160,7 @@ func dlog<T>(object: T) {}
 
 **判断是否开启ARC，有些库需要ARC支持，则在编译之前可以判断用户有没有开启ARC**
 
-``` objective-c
+``` objectivec
 #if !__has_feature(objc_arc)
 //如果没有开启ARC这里可以做一些错误处理 比如：
 #error "啊 啊 啊~ 伦家需要ARC"
@@ -171,7 +171,7 @@ func dlog<T>(object: T) {}
 
 **又比如，对不同版本的os系统做策略**
 
-``` objective-c
+``` objectivec
 #if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_7_0
 //如果iOS版本低于7.0，这里可以干一些事情
 #endif
@@ -179,7 +179,7 @@ func dlog<T>(object: T) {}
 
 **又或者判断设备类型**
 
-``` objective-c
+``` objectivec
 #define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
 #if IS_IPAD
 //这台设备是IPAD呀~~~~
@@ -190,7 +190,7 @@ func dlog<T>(object: T) {}
 
 **这个东西简单但是很常使用，正所谓IF在手，天下我有 哈哈哈**
 
-``` objective-c
+``` objectivec
  #if define  #ifdef  #ifndef  #elif
 　　#if define = #ifdef
 
@@ -209,7 +209,7 @@ func dlog<T>(object: T) {}
 
 **现在#error还是有用的，尤其是你在开发一个库的时候，这个库的使用需要一定的条件，如果不满足这个条件，你就不让使用者编译。这样不就可以使用#error啦嘛**
 
-``` objective-c
+``` objectivec
 #if !__has_feature(objc_arc)
 #error "我的低调不是你装逼的资本！这个库需要开启ARC，不然你别用！"
 #endif
@@ -269,7 +269,7 @@ func dlog<T>(object: T) {}
 
 ### #pragma mark -
 
-``` objective-c
+``` objectivec
 #pragma mark -
 #pragma mark 这里是applicationWillTerminate方法呀~
 - (void)applicationWillTerminate:(UIApplication *)application {
@@ -311,7 +311,7 @@ func dlog<T>(object: T) {}
 
 **C语言中的__LINE__用以指示本行语句在源文件中的位置信息。而#line就是可以改变当前行的行号在编译器中的表示，并且之后的行号也会相应的改变，比如**
 
-``` objective-c
+``` objectivec
 1 #include <stdio.h>
 2 main(){
 3     printf("%d\n",LINE);
@@ -323,7 +323,7 @@ func dlog<T>(object: T) {}
 
 **输出为：**
 
-``` objective-c
+``` objectivec
 3
 100
 101
