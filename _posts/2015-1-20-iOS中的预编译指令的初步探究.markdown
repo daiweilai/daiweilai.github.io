@@ -1,3 +1,13 @@
+---
+layout:     post
+title:      "iOS中的预编译指令"
+subtitle:   "只是初步探究哦"
+date:       2015-01-20 12:00:00
+author:     "DavidDay"
+header-img: "img/post/2015-1-20-bg.jpg"
+tags:
+    - 基础整理
+---
 # iOS中的预编译指令的初步探究
 
 ## 开篇
