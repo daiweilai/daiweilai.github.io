@@ -6,7 +6,10 @@
     <meta name="description" content="{{ site.description }}">
     <meta name="keyword"  content="{{ site.keyword }}">
     <link rel="shortcut icon" href="img/common/favicon.ico">
-
+	
+	<link href="css/prism.css" rel="stylesheet" />
+	<script src="http://daiweilai.github.io/js/prism.js"></script>
+	
     <title>{% if page.title %}{{ page.title }} - {{ site.SEOTitle }}{% else %}{{ site.SEOTitle }}{% endif %}</title>
 
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
