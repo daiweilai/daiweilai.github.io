@@ -58,7 +58,7 @@ duoshuo_share: true                     # set to false if you want to use Commen
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "正在努力探索iOS开发最佳实践。"
+sidebar-about-description: "正在努力探索iOS开发的最佳实践。"
 sidebar-avatar: http://daiweilai.github.io/img/common/avatar.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 

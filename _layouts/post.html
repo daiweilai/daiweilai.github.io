@@ -15,7 +15,7 @@ layout: default
 	/*导航*/
 	.BlogAnchor {
 	    background: #ffffff;
-	    padding: 10px;
+	    padding: 0px;
 	    line-height: 180%;
 	}
 	.BlogAnchor p {
@@ -28,10 +28,10 @@ layout: default
 	}
 	.BlogAnchor li{
 	    text-indent: 20px;
-	    font-size: 14px;
+	    font-size: 18px;
 	}
 	#AnchorContentToggle {
-	    font-size: 14px;
+	    font-size: 18px;
 	    font-weight: normal;
 	    color: #FFF;
 	    display: inline-block;
@@ -49,6 +49,27 @@ layout: default
 	}
 	
 
+	.ScrollTop {
+		width: 50px;
+		height: 50px;
+		background: black;
+		-moz-border-radius: 25px;
+		-webkit-border-radius: 25px;
+		border-radius: 25px;
+		position:fixed;
+		    bottom:18px;
+		    right:30px; 
+			-webkit-box-shadow: #666 0px 0px 5px;  
+			   -moz-box-shadow: #666 0px 0px 5px;  
+			   box-shadow: #666 0px 0px 5px; 
+	}
+	.ScrollTop p {
+	    font-size: 15px;
+	    color: #ffffff;
+		position:fixed;
+		    bottom:0px;
+		    right:40px;
+	}
 	
 </style>
 <header class="intro-header" >
@@ -94,6 +115,11 @@ layout: default
     <div class="AnchorContent" id="AnchorContent"> </div>
 </div>
 
+<div class="ScrollTop">
+    <p>
+        <b id="ScrollTopToggle" title="顶部" style="cursor:pointer;">Top</b>
+    </p>
+</div>
 				{{ content }}
 
                 <hr>
@@ -195,7 +221,7 @@ console.log($);
 $(".container").find("h2,h3,h4,h5,h6").each(function(i,item){
     var tag = $(item).get(0).localName;
     $(item).attr("id","wow"+i);
-    $("#AnchorContent").append('<li><a class="new'+tag+' anchor-link" onclick="return false;" href="#" link="#wow'+i+'">'+(i+1)+" · "+$(this).text()+'</a></li>');
+    $("#AnchorContent").append('<li><a class="new'+tag+' anchor-link" onclick="return false;" href="#" link="#wow'+i+'">'+$(this).text()+'</a></li>');
     $(".newh2").css("margin-left",0);
     $(".newh3").css("margin-left",20);
     $(".newh4").css("margin-left",40);
@@ -218,6 +244,10 @@ $("#AnchorContentToggle").click(function(){
 $(".anchor-link").click(function(){
     $("html,body").animate({scrollTop: $($(this).attr("link")).offset().top}, 1000);
 });
+
+
+
+$('.ScrollTop').click(function(){$('html,body').animate({scrollTop: '0px'}, 800);});
 </script>
 {% if site.duoshuo_username %}
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
