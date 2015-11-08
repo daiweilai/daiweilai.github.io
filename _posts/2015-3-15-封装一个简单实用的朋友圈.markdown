@@ -1,0 +1,359 @@
+---
+layout:     post
+title:      "封装一个简单实用的朋友圈"
+subtitle:   "教你写能被舒服舒服又舒服地调用的iOS库"
+date:       2015-03-15 12:00:00
+author:     "DavidDay"
+header-img: "img/post/2015-3-15-bg.jpg"
+tags:
+    - 基础整理
+    - 富文本
+---
+
+# 无比迅速敏捷地开发iOS超精美控件
+
+## 前言
+
+2014年过的那么快，过年又那么块，2015年又是飞快地节奏，真尼玛感觉上帝是不是无聊使用了变速外挂开启了加速模式~到现在博主都无法接受已经上班的事实……在地铁脸被挤在玻璃上的时候只能用眼神写满傻X射这个世界一脸！！原谅博主那么鸡粪~因为哥最近生病了，不嗨心~，我想来去想不明白，博主每周健身4天，胸肌压女友、拳头比沙煲、吃喝健又康、体硬似野马，怎么会生病呢？我苦思多日，终于有一天早上起床看了镜子半个小时后我才顿悟，我靠~原来长得帅真的是错！上帝在嫉妒我才让我生病的~哈哈哈 咳咳~这是一个严肃的技术博客~是绝对拒绝恶俗低下的内容的，大丈夫应该心系天下才对，最近柴静和雾霾真的触动了我们每个人的心；某极端组织像嗨大了一样，真的是屠龙宝刀在手，装备任爆的节奏；近下的港岛撑完雨伞又要赶人了……我真的是非常痛心疾首，维护世界和平一直是鄙人的愿望，现在的世界这么混乱，本人真的很惭愧，都怪我咯~~没有因为什么，所以今天博主要教大家怎么写一个自己用着安逸，修改巴适，他人用起来又无比舒服的iOS库！！
+
+
+
+## 脑洞开一开
+
+本人不才，接触代码的世界时间真心不是很久，对于系统底层优化、框架级别设计、设计模式的效率优劣等方面的学习和研究比不深刻，所以如果你是大神，你狠溜的话，我还是建议您路过呵呵一下然后就关了这个网页吧，雕虫小技无法入尔法眼啊~我不是怕被喷很菜（反正都被老师喷了二十年了……^_^）而是我对大神都是有敬畏之心的，不能说让你看你就看，你可以试一下是吧，你也不喜欢看完后是Duang 那么多特效 特技……咳咳 反正这篇文章真的很菜~~~适合比我菜的菜鸟，慎读。
+
+不过嘛我们要写一个库，能够让别人用，用起来要很舒服的，那肯定得要设计得当，肯定要熟悉平台，设计模式非常溜才行，这个没错~但是平台、架构、设计这个东西这么复杂，我解释大家也不懂，那我就不解释了（你强迫症发作死都要懂可自行找一个大学，里面有老师~）
+
+我发誓不扯BB了 我们一起来写一个能被舒服舒服又舒服地调用的iOS库，最近卫生纸涨价了，好烦，其实也是有原因的，因为毕竟生产费用什么的也都…我头上的砖头谁扔的！！？？信不信我不打死你丫的……
+
+假设我们要开发一个像微信朋友圈或者微博这玩意儿的东西，并且要有能隐藏和展开正文、正文中能够识别富文本（网址、电话、@姓名……）、还要有图片缩略图而且点击查看、能够有回复、回复文中也要支持富文本……这些功能。像这样
+
+图1
+
+![](http://daiweilai.github.io/img/post/2015-3-15-pic1.jpg)
+
+所谓君子生非异也 善假于物也。上面的功能这么多这么复杂自己写，你确定你不是吃饱了撑着？经理也说要敏捷开发，所以二话不说闪现到code4app，code.cocoachina祭出最强杀器——搜索引擎，找到了这个库[WFCoretext](https://github.com/TigerWf/WFCoretext){:target="_blank"}  发现它完美符合我们的需求呀，棒棒哒
+
+
+
+## 分析
+
+首先我们感谢WFCoretext 的作者的开源贡献，请收下我的膝盖，我们马上来用一用~
+
+图2
+
+![](http://daiweilai.github.io/img/post/2015-3-15-pic2.png)
+
+槽点不多
+
+我们来分析分析它怎么搞得把
+
+工程结构 图3
+
+![](http://daiweilai.github.io/img/post/2015-3-15-pic3.png)
+
+嗯额 还是比较简单的 View文件夹里面的是控件啦
+
+图4
+
+![](http://daiweilai.github.io/img/post/2015-3-15-pic4.png)
+
+具体实现 大家可以自己看啦，这位哥哥代码风格还是比较规范的，看起来不费劲
+
+Manager文件夹中是一些富文本匹配规则，其中YMTextData很重要 下面说
+
+我们直接来看看怎么使用的把
+
+点开`WXViewController`
+
+导包并且声明变量，变量在实现接下来的实现中会进行初始化
+
+``` objective-c
+#import "WXViewController.h"
+#import "YMTableViewCell.h"
+#import "ContantHead.h"
+#import "YMShowImageView.h"
+#import "YMTextData.h"
+#import "YMReplyInputView.h"
+
+#define dataCount 10
+#define kLocationToBottom 20
+#define kAdmin @"小虎-tiger"
+
+
+@interface WXViewController ()<UITableViewDataSource,UITableViewDelegate,cellDelegate,InputDelegate>
+{
+NSMutableArray *_imageDataSource;
+
+NSMutableArray *_contentDataSource;//模拟接口给的数据
+
+NSMutableArray *_tableDataSource;//tableview数据源
+
+NSMutableArray *_shuoshuoDatasSource;//说说数据源
+
+UITableView *mainTable;
+
+UIButton *replyBtn;
+
+YMReplyInputView *replyView ;
+}
+@end  
+```
+
+这三个方法分别构建初始化了一个tableview，初始化并赋值图片数据，初始化并赋值其他数据
+
+``` objective-c
+- (void) initTableview;
+- (void)configImageData;
+- (void)loadTextData;
+```
+
+在`loadTextData中`会将数据包装成YMTextData的数组，这样一个tableCell里面的数据就使用一个YMTextData的数据
+
+然后在`- (void)calculateHeight:(NSMutableArray *)dataArray`中会计算出数据所占用view的高度 这里面也就实现了 我们需求里面可以扩展可以收缩的功能
+
+计算完高度然后就重新加载tableview了 然后tableview的各种delegate方法 各种datasource方法就呼呼的运行了
+
+其中 以下方法中又再次使用了我们在`- (void)calculateHeight:(NSMutableArray *)dataArray`方法中计算出来的高度来设置tablecell的高度
+
+``` objective-c
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+YMTextData *ym = [_tableDataSource objectAtIndex:indexPath.row];
+BOOL unfold = ym.foldOrNot;
+return TableHeader + kLocationToBottom + ym.replyHeight + ym.showImageHeight + kDistance + (ym.islessLimit?0:30) + (unfold?ym.shuoshuoHeight:ym.unFoldShuoHeight) + kReplyBtnDistance;
+}
+```
+
+以下这个方法又把YMTextData 赋值给了YMTableViewCell
+
+``` objective-c
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+static NSString *CellIdentifier = @"ILTableViewCell";
+YMTableViewCell *cell = (YMTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+if (cell == nil) {
+cell = [[YMTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+}
+cell.stamp = indexPath.row;
+cell.replyBtn.tag = indexPath.row;
+cell.replyBtn.appendIndexPath = indexPath;
+[cell.replyBtn addTarget:self action:@selector(replyAction:) forControlEvents:UIControlEventTouchUpInside];
+cell.delegate = self;
+[cell setYMViewWith:[_tableDataSource objectAtIndex:indexPath.row]];
+return cell;
+}
+```
+
+阿拉巴拉…… 呼呼 
+
+我就想问你一句 累不累？
+
+现在我分析了一遍这个库，你知道该怎么用了么，不要怀疑自己的智商，我也要再看一遍才知道怎么用。
+
+当然我们不能怀疑作者对于开源技术做出的贡献！我们也不能怀疑作者的开发技术，毕竟这个库的bug还是比较少的，作者是伟大崇高的！减少了世界的碳排量方便了你我他，为很多代码工作者提供了方便，让他们可以不加班，早早的回家陪老婆陪基友陪孩子陪宠物……所以我要再次感谢作者
+
+但是作为一个有完美强迫症的博主，问自己一句 为什么这个库那么难用？因为它难用
+
+怎么才算是好用？系统自带的组件，使用和学习起来那么容易？这应该算是好用吧。
+
+所以接下来，我们要开刀WXViewController 让他DUANG的一下，变得使用起来 舒服舒服又舒服！！
+
+## 整容
+
+我们不妨WXViewController的实现细节都封装起来！它是一个tableview、它怎么计算高度，它的回复按钮怎么生成……巴拉巴拉我都不想管！！我的愿望是，我只要扔进去数据，就自动生成一个朋友圈出来！！！！
+
+有了愿望，急着召唤神龙也没用！规则是要集齐龙珠呀！！！好我们先干起来！整容WXViewController！！！
+
+我们要开发一个东西就叫做 “朋友圈模板”吧 在“朋友圈模板.h”中要有一个“朋友圈模板Delegate” 然后里面要有一个方法`-(返回的数据*)每行朋友圈的数据:index;`
+
+我们使用的时候就这样：
+
+``` objective-c
+//真朋友圈.h
+
+@interface 真朋友圈 : 朋友圈模板<朋友圈模板Delegate> 
+@end
+真朋友圈.m
+
+@implementation 真朋友圈
+- (void)viewDidLoad {
+self.delegate = self;
+}
+
+-(返回的数据*)每行朋友圈的数据:index{
+return [朋友圈数据数组 objectAtIndex:index];
+}
+@end
+```
+
+这样就好了！你就再也不用关心朋友圈怎么实现了 你只要关系你的数据部分！！就问你Nice不Nice？？？
+
+所以这里只要你开发好了“朋友圈模板.m”那么以后“朋友圈模板.h”和“朋友圈模板.m”就是你写好的能被人舒服舒服又舒服调用的库了！酷不酷？？
+
+博主就手把手教你怎么写这个“朋友圈模板.m”吧 嘻嘻嘻 手把手哦 呵呵呵 手 把 手哟 博主是很有爱的哦~~~~
+
+我们要开发一个`DDRichTextViewController`来代替`WXViewController` <——这个太难用了
+
+我们先来写写`DDRichTextViewController.h`嘛
+
+``` objective-c
+//学学系统组件 我们也来弄一个delegate和datasource~ 其实都是delegate为了更好地区分功能，datasource主要用来设置数据有关
+
+@protocol DDRichTextViewDelegate 
+@required
+-(NSString*)senderName;//必须要实现！不然评论别人的时候没名字 最恨匿名渣渣，自己叫的名字都不敢直接说！！“有谁知道我买充气娃娃都匿名呢 呵呵，啊？为什么我心里想的会变成文字显示出来！！！纳尼！！”
+@optional
+-(BOOL)hideReplyButtonForIndex:(NSInteger)index;//是否隐藏回复按钮，有时候我们不让人回复 就把回复按钮隐藏起来了
+-(void)didPromulgatorPressForIndex:(NSInteger)index name:(NSString*)name;//发布者的头像或者名字被点击
+-(void)didRichTextPressedFromText:(NSString*)text index:(NSInteger)index;//正文的富文本被点击的回调
+-(void)didRichTextPressedFromText:(NSString*)text index:(NSInteger)index replyIndex:(NSInteger)replyIndex;//评论的富文本被点击的回调
+-(void)replyForIndex:(NSInteger)index replyText:(NSString*)text;//回复文字的内容的回调
+@end
+
+
+@protocol DDRichTextViewDataSource 
+@required
+-(YMTextData*)dataForRowAtIndex:(NSInteger)index;//这个就是每行需要的数据了！
+-(NSInteger)numberOfRowsInDDRichText;//需要返回多少行
+@end
+
+@interface DDRichTextViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,cellDelegate,InputDelegate>
+@property (weak, nonatomic) id delegate;
+@property (weak, nonatomic) id dataSource;
+
+@end
+```
+
+
+
+然后就是`DDRichTextViewController.m`了
+
+基本上就是对`WXViewController.m`的封装了！ 让其内部实现的细节都对使用者透明化
+
+比如在`DDRichTextViewController`中实现了uitableView的datasource和delegate
+
+在这个方法中 tableview需要显示的行数就由继承`DDRichTextViewController`的子类的datasource中的
+
+`-(NSInteger)numberOfRowsInDDRichText;`这个方法返回的数据作为参数！
+
+比如这样：
+
+``` objective-c
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+return [[self dataSource] numberOfRowsInDDRichText];
+}
+```
+
+所以当我们使用我们自己写的库的时候根本不在乎这个方法
+
+`-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView；`
+
+因为我们封装到了
+
+`-(NSInteger)numberOfRowsInDDRichText;`
+
+类似其他实现以及方法都进行了封装
+
+这当中处理@required很简单，用户必须已经实现了 所以直接调用就好 。 但是 @optional的方法用户不一定会去实现，所以当中最重要的就是要去判断这个方法存不存在：方法如下
+
+``` objective-c
+ respondsToSelector:NSSelectorFromString(@“方法名:”) //这个凡是继承NSObject的类都拥有这个方法 这个是基础了，是运行时判断方法存不存在的
+```
+
+详细如下
+
+``` objective-c
+if ([self.delegate respondsToSelector:NSSelectorFromString(@"hideReplyButtonForIndex:")]) { //判断hideReplyButtonForIndex方法存不存在 存在才会执行如下的代码
+if ([[self delegate] hideReplyButtonForIndex:indexPath.section]) {
+cell.hideReply = YES;
+}
+}
+```
+
+下面是详细的代码
+
+（本来想贴详细代码的，博主一思忖！最好下载我的Demo进行研究 这样可以在方法之间跳转 更能看得懂！！地址在文后！而且你们在博主的Demo项目中star一下 我就爱死你Y的了）
+
+最后我们来看看怎么使用写好的`DDRichTextViewController`
+
+我们新建一个`TestViewController`
+
+``` objective-c
+//TestViewController.h
+
+#import "DDRichTextViewController.h"
+@interface TestViewController : DDRichTextViewController<DDRichTextViewDataSource,DDRichTextViewDelegate>
+@end
+```
+
+``` objective-c
+
+//
+// TestViewController.m
+//
+
+#import "TestViewController.h"
+
+@implementation TestViewController
+NSMutableArray * ymDataArray;
+
+- (void)viewDidLoad {
+[super viewDidLoad];
+NSMutableArray MyDataArr = [[NSMutableArray alloc]init];//!!!!这里应该自己初始化数据
+self.delegate = self;
+self.dataSource = self;
+}
+
+//下面两个是datasource方法
+-(NSInteger)numberOfRowsInDDRichText{
+return 5;
+}
+
+-(YMTextData *)dataForRowAtIndex:(NSInteger)index{
+return [MyDataArr objectAtIndex:0];//!!!!!!!! MyDataArr 是一个YMTextData的数组！！所以你的朋友圈数据的每一项都必须是YMTextData或者继承YMTextData的子类！！
+}
+
+//下面所有都是delegate的方法 朋友圈所有的特性都使用以下的delegate方法进行控制 方法有可选和必选的 可自行实现 接口调用简单
+-(NSString *)senderName{
+return @"David";
+}
+
+-(BOOL)hideReplyButtonForIndex:(NSInteger)index{
+return NO;
+}
+
+-(void)didPromulgatorNameOrHeadPicPressedForIndex:(NSInteger)index name:(NSString *)name{
+UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"发布者回调" message:[NSString stringWithFormat:@"姓名：%@\n index：%d",name,index] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+[alert show];
+}
+
+
+-(void)didRichTextPressedFromText:(NSString*)text index:(NSInteger)index{
+UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"正文富文本点击回调" message:[NSString stringWithFormat:@"点击的内容：%@\n index：%d",text,index] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+[alert show];
+}
+
+-(void)didRichTextPressedFromText:(NSString *)text index:(NSInteger)index replyIndex:(NSInteger)replyIndex{
+UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"评论的富文本点击回调" message:[NSString stringWithFormat:@"点击的内容：%@\n index：%d \n replyIndex:%d",text,index,replyIndex] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+[alert show];
+}
+
+-(void)replyForIndex:(NSInteger)index replyText:(NSString*)text{
+UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"回复的回调" message:[NSString stringWithFormat:@"回复的内容：%@\n index：%d",text,index] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+[alert show];
+}
+
+@end
+
+```
+
+效果如下
+
+图5
+
+![](http://daiweilai.github.io/img/post/2015-3-15-pic5.gif)
+
+[ 项目及Demo地址](https://github.com/daiweilai/DDRichText){:target="_blank"}
+
+## 结语
+
+博主对WXViewController的改动还是颇多的，不单单是简单地封装，我还做了表情和姓名的正则判断，还对YMTableViewCell做了大量的逻辑修改，回调的接口做更改和增添也甚多！需要你亲自去发现博主隐藏的爱，但无论如何这都是潦草的项目，想要正式的使用在企业开发中这还远远不够的！没有进行模块和单元的测试，其中图片的处理方式也不好，这里我是直接要求用户添加Image文件的 这个应该改成 添加图片地址，然后让这个库异步去请求显示的……所以还是需要大家的开源精神和力量去贡献自己的，燃烧自己的，骚年文章结束了
