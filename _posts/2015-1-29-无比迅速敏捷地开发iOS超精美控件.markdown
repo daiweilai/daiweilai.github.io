@@ -801,7 +801,7 @@ xcode6.1 SDK8.1测试没问题！
 
 这里附上官网的[地址](http://www.paintcodeapp.com/){:target="_blank"}，PaintCode 里面有视频教程，文档等（视频是油管网的，所以需要爬梯子，呵呵，你懂的）
 
-这里也附上我写的项目源代码 [DDClock](https://github.com/daiweilai/DDClock){:target:="_blank"}（尼玛！github使用代理比直接访问更快，你能忍？）
+这里也附上我写的项目源代码 [DDClock](https://github.com/daiweilai/DDClock){:target="_blank"}（尼玛！github使用代理比直接访问更快，你能忍？）
 
 这个礼拜，完成了毕设的主题和一些细节，大概是设计一套移动客户端和后台服务器安全交互的方案，涉及到各种安全通信，可靠性传输，内容加解密等内容，我会把这个设想写到博客上的；
 
