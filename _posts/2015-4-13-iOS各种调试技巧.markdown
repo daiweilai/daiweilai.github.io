@@ -227,7 +227,7 @@ tags:
 
 可以用下面的这段宏
 
-``` objective-c
+``` objectivec
 //A better version of NSLog
 
 define NSLog(format, ...) do { \
