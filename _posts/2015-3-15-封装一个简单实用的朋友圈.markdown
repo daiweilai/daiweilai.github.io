@@ -10,7 +10,7 @@ tags:
     - 富文本
 ---
 
-# 无比迅速敏捷地开发iOS超精美控件
+# 封装一个简单实用的朋友圈
 
 ## 前言
 
@@ -68,7 +68,7 @@ Manager文件夹中是一些富文本匹配规则，其中YMTextData很重要 �
 
 导包并且声明变量，变量在实现接下来的实现中会进行初始化
 
-``` objective-c
+``` objectivec
 #import "WXViewController.h"
 #import "YMTableViewCell.h"
 #import "ContantHead.h"
@@ -102,7 +102,7 @@ YMReplyInputView *replyView ;
 
 这三个方法分别构建初始化了一个tableview，初始化并赋值图片数据，初始化并赋值其他数据
 
-``` objective-c
+``` objectivec
 - (void) initTableview;
 - (void)configImageData;
 - (void)loadTextData;
@@ -116,7 +116,7 @@ YMReplyInputView *replyView ;
 
 其中 以下方法中又再次使用了我们在`- (void)calculateHeight:(NSMutableArray *)dataArray`方法中计算出来的高度来设置tablecell的高度
 
-``` objective-c
+``` objectivec
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 YMTextData *ym = [_tableDataSource objectAtIndex:indexPath.row];
 BOOL unfold = ym.foldOrNot;
@@ -126,7 +126,7 @@ return TableHeader + kLocationToBottom + ym.replyHeight + ym.showImageHeight + k
 
 以下这个方法又把YMTextData 赋值给了YMTableViewCell
 
-``` objective-c
+``` objectivec
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 static NSString *CellIdentifier = @"ILTableViewCell";
 YMTableViewCell *cell = (YMTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -167,7 +167,7 @@ return cell;
 
 我们使用的时候就这样：
 
-``` objective-c
+``` objectivec
 //真朋友圈.h
 
 @interface 真朋友圈 : 朋友圈模板<朋友圈模板Delegate> 
@@ -195,7 +195,7 @@ return [朋友圈数据数组 objectAtIndex:index];
 
 我们先来写写`DDRichTextViewController.h`嘛
 
-``` objective-c
+``` objectivec
 //学学系统组件 我们也来弄一个delegate和datasource~ 其实都是delegate为了更好地区分功能，datasource主要用来设置数据有关
 
 @protocol DDRichTextViewDelegate 
@@ -237,7 +237,7 @@ return [朋友圈数据数组 objectAtIndex:index];
 
 比如这样：
 
-``` objective-c
+``` objectivec
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
 return [[self dataSource] numberOfRowsInDDRichText];
 }
@@ -255,13 +255,13 @@ return [[self dataSource] numberOfRowsInDDRichText];
 
 这当中处理@required很简单，用户必须已经实现了 所以直接调用就好 。 但是 @optional的方法用户不一定会去实现，所以当中最重要的就是要去判断这个方法存不存在：方法如下
 
-``` objective-c
+``` objectivec
  respondsToSelector:NSSelectorFromString(@“方法名:”) //这个凡是继承NSObject的类都拥有这个方法 这个是基础了，是运行时判断方法存不存在的
 ```
 
 详细如下
 
-``` objective-c
+``` objectivec
 if ([self.delegate respondsToSelector:NSSelectorFromString(@"hideReplyButtonForIndex:")]) { //判断hideReplyButtonForIndex方法存不存在 存在才会执行如下的代码
 if ([[self delegate] hideReplyButtonForIndex:indexPath.section]) {
 cell.hideReply = YES;
@@ -277,7 +277,7 @@ cell.hideReply = YES;
 
 我们新建一个`TestViewController`
 
-``` objective-c
+``` objectivec
 //TestViewController.h
 
 #import "DDRichTextViewController.h"
@@ -285,7 +285,7 @@ cell.hideReply = YES;
 @end
 ```
 
-``` objective-c
+``` objectivec
 
 //
 // TestViewController.m
