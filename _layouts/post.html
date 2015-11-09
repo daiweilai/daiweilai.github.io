@@ -216,8 +216,9 @@ layout: default
     </div>
 </article>
 <script src="//cdn.bootcss.com/jquery/3.0.0-alpha1/jquery.js"></script>
+ <script src="http://daiweilai.github.io/js/lightbox-plus-jquery.min.js"></script>
+ <link rel="stylesheet" href="http://daiweilai.github.io/css/lightbox.css">
 <script>
-console.log($);
 $(".container").find("h2,h3,h4,h5,h6").each(function(i,item){
     var tag = $(item).get(0).localName;
     $(item).attr("id","wow"+i);
@@ -245,10 +246,16 @@ $(".anchor-link").click(function(){
     $("html,body").animate({scrollTop: $($(this).attr("link")).offset().top}, 1000);
 });
 
-
-
 $('.ScrollTop').click(function(){$('html,body').animate({scrollTop: '0px'}, 800);});
+//给图片添加点击放大事件
+$(".container").find("img").each(function(i,item){
+    var tag = $(item).get(0);
+	tag.parentNode.innerHTML = "<div>" + "<a href="+tag.src+' data-lightbox="aaa"'+ " >"+ "<img src=" + tag.src + " />" +"</a>" + "</div>"
+	  
+});
 </script>
+
+
 {% if site.duoshuo_username %}
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
