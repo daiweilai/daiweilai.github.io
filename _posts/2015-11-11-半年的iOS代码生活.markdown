@@ -17,7 +17,7 @@ tags:
 
 图1
 
-![](http://daiweilai.github.io/img/2015-11-11-pic1.png)
+![](http://daiweilai.github.io/img/post/2015-11-11-pic1.png)
 
  半年时间，反正撸啊撸段位已经是万劫不复了，iOS9一发布加班的觉悟早有了，潜伏的XCodeGhost也被拎出来了，各种被脱裤的同行大佬们也是尿了一地，哥也被吓了一哆嗦，赶忙修改了1024的账号密码…… 2015年就是伴随这些琐事发展着，但是博主作为一个初入职场半年的工作总结当然不会是简单地流水账。
 
@@ -71,7 +71,7 @@ tags:
 
  图2
 
-![](http://daiweilai.github.io/img/2015-11-11-pic2.jpg)
+![](http://daiweilai.github.io/img/post/2015-11-11-pic2.jpg)
 
  举一个简单地例子吧
 
@@ -107,7 +107,7 @@ tags:
   
   图2
   
-  ![](http://daiweilai.github.io/img/2015-11-11-pic2.jpg)
+  ![](http://daiweilai.github.io/img/post/2015-11-11-pic3.jpg)
 
 
 * 尝试全键盘操作，多记记几个快捷键世界就安静了，反正博主的magic mouse干电池已扣，什么你的是最新款的鼠标没干电池？那为了你的健康着想拿给博主用吧，可减少手腕以及肩膀劳损的风险。这里分享一个Mac屏幕效率工具[SizeUp](http://www.irradiatedsoftware.com/){:target="_blank"} 可减少鼠标的使用！
