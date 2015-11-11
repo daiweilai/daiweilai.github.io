@@ -6,9 +6,7 @@ date:       2015-11-11 12:00:00
 author:     "DavidDay"
 header-img: "img/post/2015-11-11-bg.jpg"
 tags:
-    - 基础整理
-    - debug
-    - 调试
+    - 闲暇集
 ---
 
 # 半年的iOS代码生活
