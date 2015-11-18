@@ -1,0 +1,300 @@
+---
+layout:     post
+title:      "iOS应用发布中的一些细节"
+subtitle:   "玩转iOS应用发布"
+date:       2015-11-17 12:00:00
+author:     "DavidDay"
+header-img: "img/post/2015-11-17-bg.jpg"
+tags:
+    - 拾遗集
+---
+
+# iOS应用发布中的一些细节
+
+## 前言
+
+这几天最大的新闻我想就是`巴黎恐怖袭击`了，诶，博主每年跨年都那么虔诚地许下“希望世界和平”的愿望，想不到每年都无法实现，维护世界和平这么难，博主真是有心无力啊，其实芸芸众生的我们能做的大概就是不要闯红灯、不抢小妹妹的甜筒、拉完屎记得冲水、打饭不逃票、不在澡堂小便、不挖人家墙角……其实就是维护世界和平了。
+
+然而黑客组织**Anonymous**向ISIS宣战了！
+
+图0
+
+![](http://daiweilai.github.io/img/post/2015-11-17-pic0.png)
+
+威武！
+
+好吧回归这次文章主题，就列举一些iOS应用发布中个人觉得还蛮容易忽略的一些细节。
+
+
+
+## Bundle identifier
+
+Xcode中 `Target -> General`中的`bundle identifier` ;
+
+`info.plist`中的`Bundle identifier`;
+
+[证书中心](https://developer.apple.com/account/ios/certificate/certificateList.action)的`Identifiers`中`App IDs`新建App时的`Explicit App ID`;
+
+以及`iTunes Connect`中App信息的`套装ID` 必须保持一致！！
+
+在info.plist或者Xcode里的各种设置中，有很多`$(XXX)`这样的像脚本一样的东西，所以补充一点Xcode中的[环境变量](https://developer.apple.com/library/mac/documentation/DeveloperTools/Reference/XcodeBuildSettingRef/1-Build_Setting_Reference/build_setting_ref.html)
+
+
+
+## Certificates证书
+
+苹果的证书体系一直都是iOS初学者无尽的梦魇，什么开发证书、发布证书、推送证书，什么ad hoc、内测分发、真机调试……我想每一个iOS初学刚开始接触Apple的证书体系的时候内心是绝壁崩溃并且被心中的草泥马践踏的体无完肤的……。
+
+其实苹果的证书其实没那么玄乎，很多朋友弄不懂或者过了一段时间又不知道怎么弄了，本质的原因是因为对[非对称加密(公开密钥加密)](https://zh.wikipedia.org/zh-cn/%E5%85%AC%E5%BC%80%E5%AF%86%E9%92%A5%E5%8A%A0%E5%AF%86)的不理解~~导致的~~，所以为了完全的驾驭苹果的证书，这些基础的知识就是坑你的坎，必须跨过去的。
+
+网上有各种解释证书中心里面每一种证书作用是什么、怎么创建、怎么使用的，但是这也只能授人以鱼，所以博主不会介绍每一种证书是干嘛的，因为你看前年多了一个`Pass Type ID Certificate` ，去年又有了`WatchKit Services Certificate` ，今年又来一个`Apple Pay Certificate`……根本就解释这些证书不完嘛~，所以理解这些证书的统一规律才是王道！所谓 
+
+> 万变不离其宗
+
+很多资料都把证书分成两种，分为开发证书(development)、以及发布证书(distribution)。但是博主认为这样分类不是很不科学的，博主的理解的分类是这样的
+
+图1
+
+![](http://daiweilai.github.io/img/post/2015-11-17-pic1.png)
+
+* `根证书`是与开发者或者企业对应的，只要是被`根证书`签名的App都可以理解为是这个证书对应的开发者开发的。所以一个`根证书`可以签名多个App。
+
+
+* `其他证书`呢是与具体的App对应的，一个App的推送证书是无法给另一个App使用的，所以一个`其他证书`只能为一个App签名，更确切的说是这个App需要使用某一项Apple的服务而去产生这个`其他证书`。
+
+所以其实苹果每年都添加的证书属于`其他证书`，这些其他证书并不是非必须的，而是使用了苹果的某一项服务时才需要提供的凭证。而`根证书`是必须的，它签名的APP是属于这个证书的所有者的。
+
+图2
+
+![](http://daiweilai.github.io/img/post/2015-11-17-pic2.png)
+
+图中我的这个账号默认会有两个不同用途的`根证书`，有两个App，分别为App1、APP2，以及它们对应的两种用途的推送证书(属于`其他证书`)。
+
+假如我现在需要真机调试App1的推送，那么我只要下载`开发根证书`以及`App1的开发推送证书`然后双击打开导入钥匙串，然后创建相应profile即可真机调试了；
+
+假如现在我要发布APP2，那么我只要下载`发布根证书`以及`APP2的发布推送证书`，然后创建相应地profile即可打包上传App Strore了。(这里因为发布的特殊性，所以发布的电脑必须是创建这个`发布根证书`的电脑)。
+
+profile(描述文件)下文还有篇幅介绍。
+
+我TM都绕晕了，确实有点麻烦有点复杂，果然iOS开发门槛就是高啊，但是哥就喜欢。
+
+
+
+## App IDs
+
+在相应地App的edit中可以添加多套APNs推送证书(其他的证书也类似的)
+
+图3
+
+![](http://daiweilai.github.io/img/post/2015-11-17-pic3.png)
+
+在这里声明一下，`其他证书`其他证书生成的时候，使用的`certSigningRequest`文件可以和产生`根证书`的`certSigningRequest`的不一致，也就是说产生`其他证书`时不一定需要产生`根证书`的电脑，所以这里也坑了无数的人调试推送，这个在下文[推送的那些事](#推送的一切)详细填坑。
+
+
+
+## Provisioning Profiles描述文件
+
+图4
+
+![](http://daiweilai.github.io/img/post/2015-11-17-pic4.png)
+
+我想这个界面一弹出来的时候，蛋蛋忧伤迎面扑来。然后怒点 `Fix issue`，然后你们团队负责管理证书的基友突然发现证书中心多了好多好乱的证书以及描述文件，然后他爆了一句：what the huck！删掉了带有`Xcode *`的证书以及描述文件，然后自己又暴力的点了一发`Fix issue`，然后你突然调试不了了，再暴击`Fix issue`键，最后整个团队都只有通过`Fix issue`来真机调试了……。
+
+所以慎点`Fix issue`，如果点击这个选项，聪明的(~~蠢哭的~~)Xcode就会自己管理描述文件，然后各种莫名其妙的带有`Xcode *`的证书以及描述文件……
+
+其实只要坚信一点，证书、设备ID、AppID、描述文件都弄对了就绝逼不会出问题的！
+
+描述文件工作原理
+
+图5
+
+![](http://daiweilai.github.io/img/post/2015-11-17-pic5.png)
+
+* 其实描述文件工作的原理就是在APP打包或者真机调试的时候，让Xcode去检查描述文件里面的BundleID与这个APP的BundleID是否对应。
+* 对应的话就会去`keyChain`查找有没有相应地证书(所以证书要下载好，并且导入`keyChain`)
+* 如果有证书存在的话就会检查证书的类型，如果是开发证书，则会检查调试的设备是否加入了描述文件里面的信任设备ID列表，如果设备没有在描述文件的列表中，则无法调试；如果证书类型是发布证书则不会检查设备ID列表。
+
+额外地，如果公司新增了测试机，并且在证书中心的`Devices`中添加了新测试机的ID，这样描述文件也要相应地更新，然后重新下载，下载完之后可以先删除旧的描述文件(博主直接覆盖的方式貌似描述文件没有更新啊)，你们可以自己做实验咯，描述文件的路劲`/Users/XXX/Library/MobileDevice/Provisioning\ Profiles`
+
+`XXX`你的用户名。
+
+不要覆盖！记得先删除，可以免除很多问题。
+
+
+
+## 推送的那些事
+
+如果说亿万级用户的微信推送服务并不是企鹅自己定制的而都是由苹果APNs推送的话，那苹果的推送就真的牛逼了，但是有时候测试推送，经常APNs要死不活的，推了半天才到，有一次在APNs沙箱环境怒推1000多条，然后这条队列持续了半个月才推完~~。所以微信、扣扣肯定是定制的推送，有钱就是讨厌，那么任性。
+
+但是苹果推送的开发是比较简单地，如果没有高级推送需求基本就不用写代码了，只要配置好证书一切OK。
+
+现在常用的后台server中，一般将推送证书以及推送证书的私钥导出p12交给后台人员即可。
+
+PHP有点调皮，还需要转换成pem
+
+生成PHP需要的Pem证书
+
+准备：
+
+1. 苹果服务器证书端设置正确！打包证书、描述文件正确！！
+2. 下载推送证书(cer格式)，导入keyChain，保证私钥存在，不存在去找创建这个证书的电脑要一份过来。
+3. 从钥匙库导出的~~根证书~~(推送证书)私钥(p12格式)
+
+第三步根证书的私钥这里是一个坑！因为一个App的推送证书的创建可以和根证书创建的电脑不同，也就是keyChain产生的`certSigningRequest`不一样，所以私钥也是不一样的，在这里生成Pem时，注意要使用推送证书的私钥！
+
+操作过程：
+
+1. 把推送证书(.cer)转换为.pem文件，执行命令：
+   
+   ``` shell
+   openssl x509 -in 推送证书.cer -inform der -out 推送证书.pem
+   ```
+   
+2. 把推送证书导出的私钥(.p12)文件转化为.pem文件：
+   
+   ``` shell
+   openssl pkcs12 -nocerts -out 推送证书私钥.pem -in 推送证书私钥.p12	
+   ```
+   
+3. 对生成的这两个pem文件再生成一个pem文件，来把证书和私钥整合到一个文件里：
+   
+   ``` shell
+   cat 推送证书.pem 推送证书私钥.pem >PHPPush.pem
+   ```
+
+然后把这个PHPPush.pem给后台基友们，就可以下班啦。
+
+当然测试推送也比较麻烦，需要模拟真实的推送环境，一般需要后台提供帮助，但是遇到一些后台同事，他们有强烈地信仰着鄙视链的话，很鄙视iOS，心里早就称呼你“死前段”多年了，还那么多事……
+
+所以关于调试推送，博主教你自己推自己！不麻烦别人。
+
+只要拷贝这段代码
+
+``` php
+<?php
+// devicetoken
+ $deviceToken = '你的deviceToken';
+// 私钥密码，生成pem的时候输入的
+$passphrase = '123456';
+// 定制推送内容，有一点的格式要求，详情Apple文档
+$message = array(
+	'body'=>'你收到一个新订单'
+);
+$body['aps'] = array(
+	'alert' => $message,
+	'sound' => 'default',
+	'badge' => 100,
+	);
+$body['type']=3;
+$body['msg_type']=4;
+$body['title']='新订单提醒';
+$body['msg']='你收到一个新消息';
+
+$ctx = stream_context_create();
+stream_context_set_option($ctx, 'ssl', 'local_cert', 'push.pem');//记得把生成的push.pem放在和这个php文件同一个目录
+stream_context_set_option($ctx, 'ssl', 'passphrase', $passphrase);
+$fp = stream_socket_client(
+	//这里需要特别注意，一个是开发推送的沙箱环境，一个是发布推送的正式环境，deviceToken是不通用的
+	'ssl://gateway.sandbox.push.apple.com:2195', $err,
+	//'ssl://gateway.push.apple.com:2195', $err,
+	$errstr, 60, STREAM_CLIENT_CONNECT|STREAM_CLIENT_PERSISTENT, $ctx);
+if (!$fp)
+	exit("Failed to connect: $err $errstr" . PHP_EOL);
+echo 'Connected to APNS' . PHP_EOL;
+$payload = json_encode($body);
+$msg = chr(0) . pack('n', 32) . pack('H*', $deviceToken) . pack('n', strlen($payload)) . $payload;
+$result = fwrite($fp, $msg, strlen($msg));
+if (!$result)
+	echo 'Message not delivered' . PHP_EOL;
+else
+	echo 'Message successfully delivered' . PHP_EOL;
+fclose($fp);
+?>
+```
+
+将上面的代码复制，保存成push.php
+
+然后根据上面“生成PHP需要的Pem证书”的步骤生成push.pem
+
+两个文件放在同一目录
+
+执行下面的命令
+
+``` shell
+DavidDay$ php push.php 
+```
+
+结果为
+
+``` shell
+Connected to APNS
+Message successfully delivered
+```
+
+是不是就推送成功了呢？呵呵哒
+
+
+
+## 打包、分发及内测
+
+关于打包是有很多姿势的，每个人都有各自的喜好，大部分规矩的做法都是使用Xcode的一条龙服务的：
+
+* 选择相应地描述文件、证书
+  
+* 选择ARM架构机型(模拟器是Intel架构的，真机是ARM架构的，不能通用)
+  
+* `product -> archive` 
+  
+* 然后就可以选择导出ipa在第三方平台分发测试或者上传App Stroe审核了
+  
+  ​
+
+这样的做法比较保险，因为`archive` 只会编译出真机的二进制码，所以不用担心导出的ipa真机装不起。
+
+另一种姿势是使用`xcodebuild` 工具，纯Shell编译，比较不好处理错误，但是逼格满满啊，想详细了解这种姿势的可以看看[官方文档](https://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man1/xcodebuild.1.html) ，或者参考这位同学的[分享](http://www.cnblogs.com/brycezhang/p/4097487.html) 
+
+当然嘛，博主作为拖拖派的忠实拥趸，博主打包ipa的时候是这样的：
+
+图6
+
+![](http://daiweilai.github.io/img/post/2015-11-17-pic6.gif)
+
+随时build随时转ipa。
+
+分发内测一般都会使用第三方的平台，[fir](fir.im)、[蒲公英](http://www.pgyer.com/) 都很好呀~ 
+
+关于提交审核这里，一般archive过去了，证书正确都没问题的，当然还是要检查项目是否调用了私有API，之前用[reveal ](http://revealapp.com/) ，提交应用的时候忘了移除，千不该万不该的还是用了Xcode的upload工具，也不报错，在iTunesConnect中构建版本也出现了，只是状态“正在处理”，一般这个状态持续10分钟~2个小时就会通过了，然后博主自信关机下班，想不到第二天构建版本还是“正在处理”，然后猜想是不是iTunes出问题了又怒传了N个包，依然是“正在处理”，后来准备发邮件，打开邮箱，尼玛！
+
+图7
+
+原来调用了私有接口，忘记移除reveal了~，回顾起来这里有三个大坑，
+
+1. Xcode的上传工具很辣鸡！！很多错误都无法扫描出来，所以切记 使用 `Application Loader` ，速度快，错误报告也精准。
+2. iTunesConnect的错误状态几乎没有，一般只有两个状态 “正在处理”、“成功”，所以如果超过两个小时仍然是“正在处理”，那么极有可能包出问题了！ 
+3. 记住关注邮件！
+
+打包项目证书选择必须正确 (Xcode7以下 选择项目编译target为Iphone Device 不要连接手机 否则会 ，Xcode7中不需要拔出真机，因为多了一个`build only device` 的选项）
+
+``` 
+ 编译target选错了 报错
+
+ ITMS-90530 "Invalid MinimumOSVersion. Apps that only support 64-bit devices must specify a deplyment target of 8.0 or later"
+
+IMTS-90208 "Invalid Bundle. The bundle xxx.app does not support the minimum OS version specified in the Info.plist"
+
+IMTS-90502 "Invalid Bundle. Apps that only contain the arm64 slice must also have'arm64' in the list of UIRequiredDeviceCapabilities in Info.plist ")
+```
+
+
+
+## 总结
+
+突然想起我哥说的一句话
+
+> 有时候有些女人就像饭堂饭菜，虽然难吃，但是去晚了也会没有的！
+
+珍惜身边的人。
+
+感觉这个总结什么鬼？有点伤感，嗯，iOS应用的发布，每个从业者都应该能够熟练的对发布进行操作和意外处理的。
+
+没钱结婚。
