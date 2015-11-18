@@ -146,7 +146,7 @@ PHP有点调皮，还需要转换成pem
 
 1. 把推送证书(.cer)转换为.pem文件，执行命令：
    
-   ``` shell
+   ```c
    openssl x509 -in 推送证书.cer -inform der -out 推送证书.pem
    ```
    
@@ -170,7 +170,7 @@ PHP有点调皮，还需要转换成pem
 
 只要拷贝这段代码
 
-``` php
+``` c
 <?php
 // devicetoken
  $deviceToken = '你的deviceToken';
