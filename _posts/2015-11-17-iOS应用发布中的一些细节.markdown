@@ -152,13 +152,13 @@ PHP有点调皮，还需要转换成pem
    
 2. 把推送证书导出的私钥(.p12)文件转化为.pem文件：
    
-   ``` shell
+   ``` c
    openssl pkcs12 -nocerts -out 推送证书私钥.pem -in 推送证书私钥.p12	
    ```
    
 3. 对生成的这两个pem文件再生成一个pem文件，来把证书和私钥整合到一个文件里：
    
-   ``` shell
+   ``` c
    cat 推送证书.pem 推送证书私钥.pem >PHPPush.pem
    ```
 
@@ -220,13 +220,13 @@ fclose($fp);
 
 执行下面的命令
 
-``` shell
+``` c
 DavidDay$ php push.php 
 ```
 
 结果为
 
-``` shell
+``` c
 Connected to APNS
 Message successfully delivered
 ```
@@ -275,7 +275,7 @@ Message successfully delivered
 
 打包项目证书选择必须正确 (Xcode7以下 选择项目编译target为Iphone Device 不要连接手机 否则会 ，Xcode7中不需要拔出真机，因为多了一个`build only device` 的选项）
 
-``` 
+```c
  编译target选错了 报错
 
  ITMS-90530 "Invalid MinimumOSVersion. Apps that only support 64-bit devices must specify a deplyment target of 8.0 or later"
