@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "Swift中的Weak Strong Dance令"
+title:      "Swift中的Weak Strong Dance"
 subtitle:   ""
 date:       2015-12-23 12:00:00
 author:     "DavidDay"
