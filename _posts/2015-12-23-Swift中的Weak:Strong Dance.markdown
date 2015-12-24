@@ -1,15 +1,15 @@
 ---
 layout:     post
-title:      "Swift中的Weak Strong Dance"
-subtitle:   "没有副标题"
+title:      "Swift中的Weak Strong Dance令"
+subtitle:   ""
 date:       2015-12-23 12:00:00
 author:     "DavidDay"
 header-img: "img/post/2015-12-23-bg.jpg"
 tags:
     - Swift
-	- 循环引用
-	- Weak Strong Dance
-	- 翻译
+    - 循环引用
+    - Weak Strong Dance
+    - 翻译
 ---
 
 # Swift中的Weak/Strong Dance
