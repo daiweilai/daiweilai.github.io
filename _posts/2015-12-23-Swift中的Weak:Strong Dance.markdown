@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      "Swift中的Weak/Strong Dance"
-subtitle:   ""
+title:      "Swift中的Weak Strong Dance"
+subtitle:   "没有副标题"
 date:       2015-12-23 12:00:00
 author:     "DavidDay"
 header-img: "img/post/2015-12-23-bg.jpg"
