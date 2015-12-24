@@ -88,7 +88,7 @@ strongSelf.networkReachabilityStatusBlock(status);
 
 好啦，翻译开始！
 
-[原文](http://kelan.io/2015/the-weak-strong-dance-in-swift/){:target = "_blank"}
+[原文](http://kelan.io/2015/the-weak-strong-dance-in-swift/){:target="_blank"}
 
 首先，我们祭出一个在闭包中没有使用weak的引用导致的循环引用的例子
 
@@ -124,7 +124,7 @@ two
 
 所以，`deinit` 方法是绝逼不会被执行的，即使你把 `c` 重新指向`nil`或者其他的实例，`c`也不会被销毁，这就是顽固又调皮的循环引用了，尤其是当你把`c`指向`nil`之后，这个对象你就再也引用不了了，它就静静的躺在堆内存里面，遗世而独立，然后你就堆内存泄露了，然后你就淡淡的忧伤从下体传来 ~ ~没有然后了
 
-其实Swift中闭包的参数列表([Capture List](http://www.russbishop.net/swift-capture-lists){:target = "_blank"}) 已经能够很好的让你获取一个`weak self`来避免循环引用了，但这还达不到我们的要求，只有`weak`是构不成“weak/strong dance”滴。
+其实Swift中闭包的参数列表([Capture List](http://www.russbishop.net/swift-capture-lists){:target="_blank"}) 已经能够很好的让你获取一个`weak self`来避免循环引用了，但这还达不到我们的要求，只有`weak`是构不成“weak/strong dance”滴。
 
 
 
@@ -299,7 +299,7 @@ func doClosure() {
 
 ### 自定义一个`withExtendedLifetime()`
 
-这个方法是 [@jtbandes](https://twitter.com/jtbandes){:target = "_blank"} 这哥们想的，大概会是这样：
+这个方法是 [@jtbandes](https://twitter.com/jtbandes){:target="_blank"} 这哥们想的，大概会是这样：
 
 ``` swift
  extension Optional {
@@ -340,7 +340,7 @@ func doClosure() {
 
 ## 后记
 
-关于Swift中 “Weak/Strong Dance”，中的Weak部分，大家可以参阅喵大的这篇文章 [内存管理,*weak* 和 *unowned*](https://www.baidu.com/link?url=4d2OoIpoCqnc98N8TJ4PiMR2qoqCe4qm-9LnTIUU4yzHwwVR6KaO1EOOSYNuAowX&wd=&eqid=fb7afdf00006201300000005567b8a3c){:target = "_blank"} 。
+关于Swift中 “Weak/Strong Dance”，中的Weak部分，大家可以参阅喵大的这篇文章 [内存管理,*weak* 和 *unowned*](https://www.baidu.com/link?url=4d2OoIpoCqnc98N8TJ4PiMR2qoqCe4qm-9LnTIUU4yzHwwVR6KaO1EOOSYNuAowX&wd=&eqid=fb7afdf00006201300000005567b8a3c){:target="_blank"} 。
 
 用回了一个多礼拜的Swift真是感受颇多，虽然Xcode在写Swift就像纯文本编辑器一样，但是我还是想说一句：Swift真™安全！想crash都难咯。
 
