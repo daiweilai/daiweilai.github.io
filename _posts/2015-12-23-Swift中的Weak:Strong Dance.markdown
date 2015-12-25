@@ -90,7 +90,7 @@ strongSelf.networkReachabilityStatusBlock(status);
 
 [原文](http://kelan.io/2015/the-weak-strong-dance-in-swift/){:target="_blank"}
 
-首先，我们祭出一个在闭包中没有使用weak的引用导致的循环引用的例子
+首先，我们祭出一个在闭包中没有使用weak的引用导致的循环引用的例子
 
 ``` swift
 class C {
@@ -167,7 +167,7 @@ two
 
 使用 `[weak self]`有一个细节，就是`self`在闭包中会变成`Optional` 从上面的代码中`self?.doSomething()` 就可以看出来了。
 
-但是如果你在这个闭包中狂轰乱炸的使用`self？` （多次使用`self？`），问题就来了，因为这个`self？`是一个弱引用的，那么你没法确定在这个闭包中所有的`self？`操作都能执行完毕，毕竟若引用的`self`可能随时都挂掉，然后怒举一个栗子：
+但是如果你在这个闭包中狂轰乱炸的使用`self？` （多次使用`self？`），问题就来了，因为这个`self？`是一个弱引用的，那么你没法确定在这个闭包中所有的`self？`操作都能执行完毕，毕竟若引用的`self`可能随时都挂掉，然后怒举一个栗子：
 
 图4
 

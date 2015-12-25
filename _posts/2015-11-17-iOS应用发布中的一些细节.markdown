@@ -248,7 +248,6 @@ Message successfully delivered
 * 然后就可以选择导出ipa在第三方平台分发测试或者上传App Stroe审核了
   
   ​
-
 这样的做法比较保险，因为`archive` 只会编译出真机的二进制码，所以不用担心导出的ipa真机装不起。
 
 另一种姿势是使用`xcodebuild` 工具，纯Shell编译，比较不好处理错误，但是逼格满满啊，想详细了解这种姿势的可以看看[官方文档](https://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man1/xcodebuild.1.html){:target="_blank"} ，或者参考这位同学的[分享](http://www.cnblogs.com/brycezhang/p/4097487.html){:target="_blank"}
