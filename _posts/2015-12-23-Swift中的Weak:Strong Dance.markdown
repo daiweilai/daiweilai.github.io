@@ -342,8 +342,6 @@ func doClosure() {
 
 关于Swift中 “Weak/Strong Dance”，中的Weak部分，大家可以参阅喵大的这篇文章 [内存管理,*weak* 和 *unowned*](https://www.baidu.com/link?url=4d2OoIpoCqnc98N8TJ4PiMR2qoqCe4qm-9LnTIUU4yzHwwVR6KaO1EOOSYNuAowX&wd=&eqid=fb7afdf00006201300000005567b8a3c){:target="_blank"} 。
 
-用回了一个多礼拜的Swift真是感受颇多，虽然Xcode在写Swift就像纯文本编辑器一样，但是我还是想说一句：Swift真™安全！想crash都难咯。
-
-还有 Happy Christmas！
+用回了一个多礼拜的Swift真是感受颇多，虽然Xcode在写Swift还是像纯文本编辑器一样，但是我还是想说一句：Swift真™安全！想crash都难咯。
 
 收笔，走人。
