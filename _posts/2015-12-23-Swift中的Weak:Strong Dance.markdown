@@ -36,12 +36,6 @@ tags:
 
 好吧，重新捡起Swift吧，今天的这篇文章是一篇激情翻译大作。
 
-**但是本人的英文水平却遭到了国人在twitter上的国骂，所以此文慎读：**
-
-图3
-
-![](http://daiweilai.github.io/img/post/2015-12-23-pic3.jpg)
-
 好吧回到博文的主题中来，这次我们说说“Weak/Strong Dance”
 
 在block中解决循环引用要追寻的[2011 WWDC Session #322](https://developer.apple.com/videos/play/wwdc2011-322/){:target="_blank"} 当时惊艳的代码是这样的：
