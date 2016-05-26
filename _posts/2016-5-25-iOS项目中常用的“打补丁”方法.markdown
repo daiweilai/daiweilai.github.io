@@ -1,0 +1,351 @@
+---
+layout:     post
+title:      "iOS项目中常用的“打补丁”技巧"
+subtitle:   "只要补丁打得好，需求变更都不是事儿！"
+date:       2015-05-25 12:00:00
+author:     "DavidDay"
+header-img: "img/post/2015-5-25-bg.jpg"
+tags:
+    - 基础整理
+    - 天杀的需求变更
+---
+
+
+
+# iOS项目中常用的“打补丁”技巧
+
+嗯。。怎么开篇呢
+
+。
+
+。
+
+(一个小时。。搓脚毛苦思中。。)
+
+。
+
+呵呵，你以为博主真的不知道怎么开篇么，这里花了一个小时的时间其实是另有深意的好么，我的套路就是这么湿！！，其实博主是为了阐述一个问题！就是如果只想了一个标题内容却不知道怎么组织内容就会是这样的慢性尴尬症。就像我们做项目的时候经常脑袋一热，二话不说上来就撸代码。然后就发现框架不行，不够灵活无法扩展，功能缺失！然后在你准备调整架构的时候，产品经理就跳出来补上一刀——改需求。
+
+![](http://daiweilai.github.io/img/post/2016-5-25-pic1.gif)
+
+这种绝望，我们都经历过！
+
+![](http://daiweilai.github.io/img/post/2016-5-25-pic2.jpg)
+
+产品经理常用必杀：
+
+『用户反应，按钮双击会有错误，所以你把整个项目有交互的控件都设置为不能双击吧，干巴爹』
+
+——![](http://daiweilai.github.io/img/post/2016-5-25-pic3.jpg)
+
+『这个输入框怎么能输入🐵🐵🐵这个呢，把所有的输入框都禁止输入乱七八糟的东西吧，么么哒』
+
+——这个是emoji，并没有这么乱七八糟。。
+
+『哦之前忘了定义，给所有的输入框都限制大数吧、给所有的页面都加上返回手势吧，给所有的……』
+
+『线上有几个页面暂时不需要了，能屏蔽掉么』
+
+。。。
+
+我能和产品探讨一下引力波的探测与广义相对论的必然联系么？老子弄死你丫的
+
+![](http://daiweilai.github.io/img/post/2016-5-25-pic4.jpg)
+
+我想项目新人几乎都遇到过这些坑吧，产品经理不专业在一般的公司里是常态，现在的互联网，一言不合就改需求，也是个常态。
+
+但是强大的猿类们，决不能屈服于这种常态，变态起来！！
+
+只要努力微笑，命运也会惧怕我的獠牙。
+
+![](http://daiweilai.github.io/img/post/2016-5-25-pic5.jpg)
+
+回到这次的主题——『打补丁』
+
+什么是打补丁呢，打补丁是使用针线在织物上辅以破布以缝补上，是民间伟大的传统手工艺之一。该技艺严谨精密，讲究施针，针法所达百余种，常见的有滚、铺、盖、戳等等，针脚整齐、掺色轻柔、虚实合度、变化丰富。一千多年来，逐步形成。。。诶，这老毛病就是改不了，总是喜欢一本正经的扯犊子~~
+
+![](http://daiweilai.github.io/img/post/2016-5-25-pic6.jpeg)
+
+博主要说的『打补丁』必然不是针线活！再次声明这里是技术博客，并非传统技艺授受中心！
+
+我们给一个东西打补丁，原因就两个字！破。
+
+所以我们给项目打补丁也是因为项目破了，就像遇到上面的整改需求，功能不完善了，功能缺失了我们就有了打补丁的必要了。
+
+在iOS中打补丁，我以修补时机为主分为两种打补丁的方式，
+
+- 开发中的打补丁
+- 线上的打补丁
+
+
+
+## 开发中修补
+
+早知今日，何必当初。何出此感慨？假如开始项目的时候框架设计好一点，今天还会沦落到打补丁么？？但是耍流氓的敏捷开发、坑爹的开发周期、逆天的用户需求之下何来优秀的框架搭设啊？
+
+看着产品方案，我颤抖的小嘴刚要张开说『一个礼拜框架搭设，两个礼拜编码，应该…』然而老板拍拍你的肩膀『小伙子 这个周末弄出来，我以前也是做开发的，时间很充足哦，不许骗我喔~』，老板你确定你不是以前做PPT的。
+
+![](http://daiweilai.github.io/img/post/2016-5-25-pic7.jpg)
+
+这个时候的心情就跟刚看完《小时代》一样憋屈。所以开发中需要打补丁的状况太多了，改结构，重写，时间不够，所以只能打补丁了！
+
+### AOP
+
+当初学习JavaEE的时候接触理念，反正文邹邹的概念博主也不贴出来了，AOP简称面向切面编程，说白了就是一个打补丁的编程方式！不侵入式地给一个方法添加代码。冠名之『 润物细无声の之技』，嘿嘿，有个片假名的标题，你们都兴奋了起来呢~~
+
+至于AOP的基本理念、适用场景等，各位看官就自行Wiki吧。什么竟然说博主根本也不懂什么是AOP！！！![](2016-5-25-pic8.jpg)
+
+知道什么是学霸么！就是举手投足高分拿下、信手拈来理论来辩、回眸一笑全是败将！
+
+![](http://daiweilai.github.io/img/post/2016-5-25-pic9.gif)
+
+说了这么多，到底怎么用AOP方式给项目打补丁呢？
+
+我们来打个栗子吧！——只允许所有的控件的单击
+
+一个项目中少说成百上千的控件，即使有些控件复用，项目中控件的数量也会几十上百的UI控件无法复用，那怎么把着几十上百的控件都禁止双击呢？
+
+我们知道UIView有个属性
+
+``` objectivec
+@property(nonatomic,getter=isExclusiveTouch) BOOL       exclusiveTouch __TVOS_PROHIBITED;         // default is NO
+```
+
+如果一个View设置exclusiveTouch为YES的话，那么该View就是独占事件，就是当点击自己的时候，其他所有的View的事件都会被Block，并且当前的View也只能单次点击。利用这个特性我们就能把所有的控件的这个属性都设置为YES不就行了嘛。
+
+然后吭吃吭吃地给几十上百个控件都设置了该属性，看到都累，这样的方式打补丁，那万一产品有来了说不要禁止双击呢？
+
+![](http://daiweilai.github.io/img/post/2016-5-25-pic10.gif)
+
+你这不是在给项目打补丁，是在打自己。
+
+所以我们有下面这样的方式：
+
+``` objectivec
+@implementation MyView 
++ (void)load{ //load方法是所有继承NSObject类都拥有的类方法，理解为这个方法加载的很早很早！！
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        Class class = [self class];
+        
+        SEL originalSelector = @selector(willMoveToSuperview:);//View被加到父View的时候的回调
+        SEL swizzledSelector = @selector(ddwillMoveToSuperview:);
+        
+        Method originalMethod = class_getInstanceMethod(class, originalSelector);
+        Method swizzledMethod = class_getInstanceMethod(class, swizzledSelector);
+        
+        BOOL didAddMethod =class_addMethod(class,
+                                           originalSelector,
+                                           method_getImplementation(swizzledMethod),
+                                           method_getTypeEncoding(swizzledMethod));
+        
+        if (didAddMethod) {
+            class_replaceMethod(class,
+                                swizzledSelector,
+                                method_getImplementation(originalMethod),
+                                method_getTypeEncoding(originalMethod));
+        } else {
+            method_exchangeImplementations(originalMethod, swizzledMethod);
+        }
+    });
+}
+
+- (void)ddwillMoveToSuperview:(UIView *)newSuperview{
+    [self ddwillMoveToSuperview:newSuperview];
+    [self setExclusiveTouch:YES];
+}
+
+@end
+```
+
+其实就是OC的Runtime的 Method Swizzling，很轻易地实现了AOP打补丁
+
+更多的资料任意门:
+
+[Method Swizzling 和 AOP 实践](http://tech.glowing.com/cn/method-swizzling-aop/){:target="_blank"}
+
+当然很多优秀的开源项目都是润物细无声的老司机，他们的库不需要添加任何代码就能跑起来，其实这个方式就是AOP，就是使用了load方法和Runtime！
+
+比如给键盘打补丁老司机的 [IQKeyboardManager](https://github.com/hackiftekhar/IQKeyboardManager){:target="_blank"}
+
+fxxkingd 噢不 是forking dog团队的给返回手势打补丁的[UITableView-FDTemplateLayoutCell](https://github.com/forkingdog/UITableView-FDTemplateLayoutCell){:target="_blank"}
+
+
+
+### Category
+
+Category可以给任意一个继承NSObject的类添加方法，重写方法！ 其本质的作用就是为了轻继承的，所以利用Category同样可以给项目打补丁！
+
+同样的问题——只允许所有的控件的单击
+
+我们可以给UIView写一个Category
+
+``` objectivec 
+#import "UIView+SingleTap.h"
+
+@implementation UIView(SingleTap)
+-(BOOL)isExclusiveTouch{
+    return YES;
+}
+@end
+```
+
+不足之处就是在使用的时候必须引用该Category的头文件
+
+当然如果你确定要干掉所有控件的双击，也可以在Pch预编译头文件中引入该Category，这样整个项目的每个文件默认都会引入这个Category，一劳永逸了。
+
+
+
+### Notification
+
+利用通知也能给项目修修补补。
+
+个人认为作为一个iOS开发者首先都要有一定的YY能力！怎么说？因为我们几乎不可能看到应用层框架源码，所以很多实现机制只能靠猜！也因为这种状况，我们觉得iOSer都应该养成一个癖好——对苹果暴露的方法和属性列表要近乎狂热地感兴趣，比如学习一个框架的时候头文件中所有东西都不要放过！也应该学会扫描方法列表和成员变量的技能，比如有好事者把iOS Runtime的所有私有接口都扫面了出来 [iOS-Runtime-Headers](https://github.com/nst/iOS-Runtime-Headers){:target="_blank"} 这个东西真TM太赞了！！哈哈
+
+ 现在我们有这样的一个需求——让所有的UITextField不允许输入emoji表情
+
+如果在每个使用了UITextField的地方使用代理方法
+
+``` objectivec
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string; 
+```
+
+然后一个一个字符的检测，如果是emoji的话就删除，想想全局有几十上百的UITextField，就菊花一紧，这么多改起来蛋疼，以后维护起来还会更蛋碎，所以这种方法是觉不可行的！！
+
+当然就想想AOP、和Category的方式了，当然这些方式必然能做到的，但是我们这里要用别的方法！
+
+二话不说撸出UITextfieldDelegate.h
+
+我们可以看到有几个String常量！看到`Notification` 关键字就绝逼是注册接受通知用的了！可以看到UITextField在编辑途中会发出好几个通知：
+
+``` objectivec
+UIKIT_EXTERN NSString *const UITextFieldTextDidBeginEditingNotification;
+UIKIT_EXTERN NSString *const UITextFieldTextDidEndEditingNotification;
+UIKIT_EXTERN NSString *const UITextFieldTextDidChangeNotification;
+```
+
+所以我们可以利用着几个通知这么做
+
+App delegate.m
+
+``` objectivec
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
+    /**
+     *  监听全局的textview和textfield的EndEidt
+     */
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(enhanceGlobalInputs:) name:UITextFieldTextDidEndEditingNotification object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(enhanceGlobalInputs:) name:UITextViewTextDidEndEditingNotification object:nil];
+}
+   
+   
+- (void)enhanceGlobalInputs:(NSNotification*)notification{
+    //移除emoji表情 stringByRemovingEmoji是我给NSString写的一个扩展，用于移除Emoji
+    if ([notification.name isEqualToString:@"UITextFieldTextDidEndEditingNotification"]) {
+        ((UITextField *)notification.object).text = [((UITextField*)notification.object).text stringByRemovingEmoji];
+    }else if([notification.name isEqualToString:@"UITextViewTextDidEndEditingNotification"]){
+        ((UITextView *)notification.object).text = [((UITextView*)notification.object).text stringByRemovingEmoji];
+    }
+    
+    //限制大数 只允许输入10位长度的数字 isPositiveFloat是一个判断字符串中的数字是否是合法数字的方法,简单的正则匹配
+    NSString*(^limitBigNum)(NSString* num) = ^(NSString* num){
+        if ([Tools isPositiveFloat:num]) {
+            if (num.length>10) {
+                return [num substringWithRange:NSMakeRange(0, 10)];
+            }else{
+                return num;
+            }
+        }else{
+            return num;
+        }
+    };
+    if ([notification.name isEqualToString:@"UITextFieldTextDidChangeNotification"]) {
+        ((UITextField *)notification.object).text = limitBigNum(((UITextField *)notification.object).text);
+    }else if([notification.name isEqualToString:@"UITextViewTextDidChangeNotification"]){
+        ((UITextView *)notification.object).text = limitBigNum(((UITextView *)notification.object).text);
+    }
+}
+```
+
+
+
+NSString+Emoji.m
+
+``` objectivec
+#import "NSString+Emoji.h"
+#include <unicode/utf8.h>
+
+@implementation NSString(Emoji)
+
+- (NSString *)stringByRemovingEmoji {
+    NSData *d = [self dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:NO];//有损转换
+    if(!d){
+        return nil;
+    }
+    const char *buf = (char*)d.bytes;
+    NSUInteger len = [d length];
+    char *str = (char *)malloc(len);//分配char*len大小的内存
+    unsigned int inputIndex = 0, outpuIndex = 0;
+    int uc;//当前unicode字符的编码 十进制表示
+    while (inputIndex < len) {
+        U8_NEXT_UNSAFE(buf, inputIndex, uc);//一个一个字符遍历
+        if(0x2100 <= uc && uc <= 0x26ff) continue;//是emoji就放弃本轮循环
+        if(0x1d000 <= uc && uc <= 0x1f77f) continue;//是emoji就放弃本轮循环
+        U8_APPEND_UNSAFE(str, outpuIndex, uc);//不是emoji表情，添加到str中
+    }
+    return [[NSString alloc] initWithBytesNoCopy:str length:outpuIndex encoding:NSUTF8StringEncoding freeWhenDone:YES];
+}
+@end
+```
+
+
+
+### 宏替换
+
+最后这种方法也许很多人都知道怎么用了，iOS的编译机制就是后编译的相同方法签名的方法会覆盖较早之前的方法。
+
+``` objectivec
+#pragma mark - 重写NSLog,Debug模式下打印日志和当前行数
+#if DEBUG
+#define NSLog(FORMAT, ...) fprintf(stderr,"\nfunction:%s line:%d content:%s\n", __FUNCTION__, __LINE__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
+#else
+#define NSLog(FORMAT, ...) nil
+#endif
+```
+
+这样就等于给全局的NSLog给打上一个补丁了或者说给NSLog增强了！这个不赘述了。
+
+
+
+## 线上的修补
+
+因为苹果一个礼拜审核时效的尿性，给一个线上的项目打补丁还是很有意义的。但是线上的打补丁方式条件就要苛刻许多了！一般是在项目中先植入一个引擎类的东西，然后移动端去获取修补的指令(Lua、JavaScript等脚本，至于用什么语言和这个修补引擎的设计有关)，然后这个引擎会将指令通过一定的映射规则生成本地的的可执行指令，比如OC中可以使用Runtime新增类或者修改类，然后达到打补丁的效果也称为热更新技术！下面的都是成熟的热更新引擎，可以学习一下
+
+### wax
+
+使用Wax给你的应用程序打补丁 http://blog.devzeng.com/blog/ios-patch-by-wax.html
+
+
+
+### JSPatch
+
+https://github.com/bang590/JSPatch
+
+
+
+不过如果你的项目支持了热更新，那么产品就更加肆无忌惮了，因为你可以给线上的项目打补丁了，所以你懂得~~
+
+![](http://daiweilai.github.io/img/post/2016-5-25-pic11.jpg)
+
+『这样要改一下』。。被吓得都质壁分离了！
+
+
+
+## 总结
+
+这篇文主要是分享了本人在正式项目中遇到时间紧迫但是急需变更需求的时候的一些方法与思路，都是拙见，都是野路子，但是我就是喜欢这样，哈哈 （自带BGM~我就是爱音乐~别叫我停下来~）
+
+但是，预见性的架构设计思想可以让你避免掉很多的野路子，一份代码的优雅以及可靠都是在一些规范的设计原则上建立起来的，所以哦像一些基本的设计原则比如`Don't repeat yourself` 原则；封装成类，或者在基类中的封装；众多设计模式有良好的扩展和灵活特性的指导；又或者利用其他编程范式如函数式、响应式来写出更加健壮灵活的代码。
+
+![](http://daiweilai.github.io/img/post/2016-5-25-pic12.jpg)
+
+散了！回家抄党章避避邪去了，又要改需求。。。。
