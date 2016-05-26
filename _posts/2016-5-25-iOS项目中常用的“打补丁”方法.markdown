@@ -4,7 +4,7 @@ title:      "iOS项目中常用的“打补丁”技巧"
 subtitle:   "只要补丁打得好，需求变更都不是事儿！"
 date:       2015-05-25 12:00:00
 author:     "DavidDay"
-header-img: "img/post/2015-5-25-bg.jpg"
+header-img: "img/post/2016-5-25-bg.jpg"
 tags:
     - 基础整理
     - 天杀的需求变更
