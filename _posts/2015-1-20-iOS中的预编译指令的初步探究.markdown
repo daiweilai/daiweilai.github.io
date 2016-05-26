@@ -59,7 +59,7 @@ tags:
 
 各种编译器的区别还有几本对比知识可以参看[LLVM和GCC的区别](http://www.cnblogs.com/zuopeng/p/4141467.html){:target="_blank"}
 
-关于苹果的和gcc以及LLVM背后激情个故事看以看这个[三好学生Chris Lattner的LLVM编译工具链](http://www.programmer.com.cn/9436/){:target="_blank"}
+关于苹果的和gcc以及LLVM背后激情个故事看以看这个[三好学生Chris Lattner的LLVM编译工具链](http://history.programmer.com.cn/9436/){:target="_blank"}
 
 那么接下来就是正片的高潮啦——预处理指令
 
