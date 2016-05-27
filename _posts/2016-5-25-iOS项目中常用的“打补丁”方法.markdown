@@ -172,7 +172,7 @@ tags:
 
 比如给键盘打补丁老司机的 [IQKeyboardManager](https://github.com/hackiftekhar/IQKeyboardManager){:target="_blank"}
 
-fuckingd。。 噢不 是forking dog团队的给返回手势打补丁的[UITableView-FDTemplateLayoutCell](https://github.com/forkingdog/UITableView-FDTemplateLayoutCell){:target="_blank"} 这个团队还是非常棒的！他们的开源项目质量都很高！值得学习！
+fxxkingd。。 噢不 是forking dog团队的给返回手势打补丁的[UITableView-FDTemplateLayoutCell](https://github.com/forkingdog/UITableView-FDTemplateLayoutCell){:target="_blank"} 这个团队还是非常棒的！他们的开源项目质量都很高！值得学习！
 
 
 
