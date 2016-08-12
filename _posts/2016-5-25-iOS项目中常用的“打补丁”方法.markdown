@@ -225,7 +225,7 @@ Category可以给任意一个继承自NSObject的类添加方法，重写方法�
 
 二话不说撸出`UITextfieldDelegate.h`
 
-我们可以看到有几个String常量！看到`Notification` 关键字就绝逼是注册接受通知用的了！可以猜到UITextField在各种状态回调时会发出好几个通知：
+我们可以看到有几个String常量！看到`Notification` 关键字就绝逼是注册接受通知用的了！可以猜到UITextField在各种状态回调时会发出好几个通知：
 
 ``` objectivec
 UIKIT_EXTERN NSString *const UITextFieldTextDidBeginEditingNotification;
