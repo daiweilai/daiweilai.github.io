@@ -172,7 +172,7 @@ tags:
 
 比如给键盘打补丁老司机的 [IQKeyboardManager](https://github.com/hackiftekhar/IQKeyboardManager){:target="_blank"}
 
-fuckingd。。 噢不 是forking dog团队的给返回手势打补丁的[UITableView-FDTemplateLayoutCell](https://github.com/forkingdog/UITableView-FDTemplateLayoutCell){:target="_blank"} 这个团队还是非常棒的！他们的开源项目质量都很高！值得学习！
+fxxkingd。。 噢不 是forking dog团队的给返回手势打补丁的[UITableView-FDTemplateLayoutCell](https://github.com/forkingdog/UITableView-FDTemplateLayoutCell){:target="_blank"} 这个团队还是非常棒的！他们的开源项目质量都很高！值得学习！
 
 
 
@@ -225,7 +225,7 @@ Category可以给任意一个继承自NSObject的类添加方法，重写方法�
 
 二话不说撸出`UITextfieldDelegate.h`
 
-我们可以看到有几个String常量！看到`Notification` 关键字就绝逼是注册接受通知用的了！可以猜到UITextField在各种状态回调时会发出好几个通知：
+我们可以看到有几个String常量！看到`Notification` 关键字就绝逼是注册接受通知用的了！可以猜到UITextField在各种状态回调时会发出好几个通知：
 
 ``` objectivec
 UIKIT_EXTERN NSString *const UITextFieldTextDidBeginEditingNotification;
