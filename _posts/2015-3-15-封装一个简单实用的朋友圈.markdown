@@ -30,7 +30,7 @@ tags:
 
 图1
 
-![](http://daiweilai.github.io/img/post/2015-3-15-pic1.jpg)
+![](https://daiweilai.github.io/img/post/2015-3-15-pic1.jpg)
 
 所谓君子生非异也 善假于物也。上面的功能这么多这么复杂自己写，你确定你不是吃饱了撑着？经理也说要敏捷开发，所以二话不说闪现到code4app，code.cocoachina祭出最强杀器——搜索引擎，找到了这个库[WFCoretext](https://github.com/TigerWf/WFCoretext){:target="_blank"}  发现它完美符合我们的需求呀，棒棒哒
 
@@ -42,7 +42,7 @@ tags:
 
 图2
 
-![](http://daiweilai.github.io/img/post/2015-3-15-pic2.png)
+![](https://daiweilai.github.io/img/post/2015-3-15-pic2.png)
 
 槽点不多
 
@@ -50,13 +50,13 @@ tags:
 
 工程结构 图3
 
-![](http://daiweilai.github.io/img/post/2015-3-15-pic3.png)
+![](https://daiweilai.github.io/img/post/2015-3-15-pic3.png)
 
 嗯额 还是比较简单的 View文件夹里面的是控件啦
 
 图4
 
-![](http://daiweilai.github.io/img/post/2015-3-15-pic4.png)
+![](https://daiweilai.github.io/img/post/2015-3-15-pic4.png)
 
 具体实现 大家可以自己看啦，这位哥哥代码风格还是比较规范的，看起来不费劲
 
@@ -350,7 +350,7 @@ UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"回复的回调" messa
 
 图5
 
-![](http://daiweilai.github.io/img/post/2015-3-15-pic5.gif)
+![](https://daiweilai.github.io/img/post/2015-3-15-pic5.gif)
 
 [ 项目及Demo地址](https://github.com/daiweilai/DDRichText){:target="_blank"}
 

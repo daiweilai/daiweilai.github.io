@@ -18,11 +18,11 @@ tags:
 
 图1
 
-![](http://daiweilai.github.io/img/post/2015-12-23-pic1.jpg)
+![](https://daiweilai.github.io/img/post/2015-12-23-pic1.jpg)
 
 图2
 
-![](http://daiweilai.github.io/img/post/2015-12-23-pic2.jpg)
+![](https://daiweilai.github.io/img/post/2015-12-23-pic2.jpg)
 
 看来今年没利了
 
@@ -165,7 +165,7 @@ two
 
 图4
 
-![](http://daiweilai.github.io/img/post/2015-12-23-pic4.jpg)
+![](https://daiweilai.github.io/img/post/2015-12-23-pic4.jpg)
 
 ``` swift
 class C {

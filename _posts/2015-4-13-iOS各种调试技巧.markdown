@@ -21,7 +21,7 @@ tags:
 
 图1
 
-![](http://daiweilai.github.io/img/post/2015-4-13-pic1.jpg)
+![](https://daiweilai.github.io/img/post/2015-4-13-pic1.jpg)
 
 
 
@@ -49,7 +49,7 @@ tags:
 
 图2
 
-![](http://daiweilai.github.io/img/post/2015-4-13-pic2.jpg)
+![](https://daiweilai.github.io/img/post/2015-4-13-pic2.jpg)
 
 无数个夜晚你揪着头发和Bug撕咬的情景博主可以体会，所以这次的这篇文章博主就要给大家整理一个调教iOS逼优鸡的方法豪华套餐！！放心！绝对的深度豪华，因为已经加入肯德基豪华午餐~咳咳~其实是因为逼优鸡(Bug)对于我们毕竟是除了老婆之外第二可怕的存在！我们必须要练就铜头铁臂十八般武艺，祭练奇门巧技各种大杀！方可与之周旋并将之歼灭！好！跟着博主一起装逼一起飞吧！！！！
 
@@ -97,13 +97,13 @@ tags:
 
 如图3
 
-![](http://daiweilai.github.io/img/post/2015-4-13-pic3.png)
+![](https://daiweilai.github.io/img/post/2015-4-13-pic3.png)
 
 基本的断点操作如下
 
 图4
 
-![](http://daiweilai.github.io/img/post/2015-4-13-pic4.gif)
+![](https://daiweilai.github.io/img/post/2015-4-13-pic4.gif)
 
 点击那个黑列列就创建了一个断点，再次点击就临时取消这个断点(但是不删除)，长按那个断点拖出去就删除了(mac os的系统工程师就是稀饭拖动的快感)，当然也可以右键那个创建的断点，会弹出相应地菜单。
 
@@ -111,7 +111,7 @@ tags:
 
 图5
 
-![](http://daiweilai.github.io/img/post/2015-4-13-pic5.png)
+![](https://daiweilai.github.io/img/post/2015-4-13-pic5.png)
 
 
 
@@ -125,7 +125,7 @@ tags:
 
 图6
 
-![](http://daiweilai.github.io/img/post/2015-4-13-pic6.png)
+![](https://daiweilai.github.io/img/post/2015-4-13-pic6.png)
 
 这些Debug的最基本操作技能是每一个入门的iOS开发者都要掌握的，应该当成一种本能，就像狗爱吃翔一样(噢 对不起 博主不是歧视狗的意思，博主也养过狗，很二逼但是从不吃翔！真的据我所知它从来不吃翔的，这里只是比喻只是比喻)。
 
@@ -141,7 +141,7 @@ tags:
 
 图7
 
-![](http://daiweilai.github.io/img/post/2015-4-13-pic7.png)
+![](https://daiweilai.github.io/img/post/2015-4-13-pic7.png)
 
 在Debug导航面板进行上图的操作，你就建立了全局断点，这样只要遇到错误，debug程序就会自动定位到栈底的信息，也就是你最先出错的代码的那一行，这样你就可以快乐的debug拉~~
 
@@ -155,7 +155,7 @@ tags:
 
 图8
 
-![](http://daiweilai.github.io/img/post/2015-4-13-pic8.png)
+![](https://daiweilai.github.io/img/post/2015-4-13-pic8.png)
 
 你是不是想问博主为何那么风骚，竟然上了Swift了！！我此刻只想吟一首湿：别人笑我太淫荡，我家住在黄鹤楼。
 
@@ -165,13 +165,13 @@ tags:
 
 图9
 
-![](http://daiweilai.github.io/img/post/2015-4-13-pic9.png)
+![](https://daiweilai.github.io/img/post/2015-4-13-pic9.png)
 
 这样只有遍历到c==“H”的时候 断点才会被触发。
 
 图10
 
-![](http://daiweilai.github.io/img/post/2015-4-13-pic10.png)
+![](https://daiweilai.github.io/img/post/2015-4-13-pic10.png)
 
 是不是很棒呢！
 
@@ -183,7 +183,7 @@ tags:
 
 图11
 
-![](http://daiweilai.github.io/img/post/2015-4-13-pic11.png)
+![](https://daiweilai.github.io/img/post/2015-4-13-pic11.png)
 
 
 
@@ -193,7 +193,7 @@ tags:
 
 图12
 
-![](http://daiweilai.github.io/img/post/2015-4-13-pic12.jpg)
+![](https://daiweilai.github.io/img/post/2015-4-13-pic12.jpg)
 
 
 
@@ -203,7 +203,7 @@ tags:
 
 图13
 
-![](http://daiweilai.github.io/img/post/2015-4-13-pic13.jpg)
+![](https://daiweilai.github.io/img/post/2015-4-13-pic13.jpg)
 
 
 
@@ -213,7 +213,7 @@ tags:
 
 图14
 
-![](http://daiweilai.github.io/img/post/2015-4-13-pic14.png)
+![](https://daiweilai.github.io/img/post/2015-4-13-pic14.png)
 
 
 
@@ -248,7 +248,7 @@ fprintf(stderr, "-------\n"); \
 
 
 
-关于宏的威力 大家可以乱入我的博文[《 iOS中的预编译指令的初步探究》](http://daiweilai.github.io/2015/01/20/iOS%E4%B8%AD%E7%9A%84%E9%A2%84%E7%BC%96%E8%AF%91%E6%8C%87%E4%BB%A4%E7%9A%84%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%A9%B6/){:target="_blank"}
+关于宏的威力 大家可以乱入我的博文[《 iOS中的预编译指令的初步探究》](https://daiweilai.github.io/2015/01/20/iOS%E4%B8%AD%E7%9A%84%E9%A2%84%E7%BC%96%E8%AF%91%E6%8C%87%E4%BB%A4%E7%9A%84%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%A9%B6/){:target="_blank"}
 
 这样打印出来的东西才像话嘛(其实NSLog的打印是非常低效的，甚至比print低100倍，感兴趣自己翻翻苹果手册咯)。 
 
@@ -256,7 +256,7 @@ fprintf(stderr, "-------\n"); \
 
 图17
 
-![](http://daiweilai.github.io/img/post/2015-4-13-pic17.png)
+![](https://daiweilai.github.io/img/post/2015-4-13-pic17.png)
 
 ### 开启僵尸对象(Enable NSZombie Objects)
 
@@ -268,7 +268,7 @@ Xcode可以把那些已经release掉得对象，变成“僵尸”，当我们�
 
 图15
 
-![](http://daiweilai.github.io/img/post/2015-4-13-pic15.png)
+![](https://daiweilai.github.io/img/post/2015-4-13-pic15.png)
 
 自己再试试输出Object的信息咯，是不是很棒呢？
 
@@ -286,7 +286,7 @@ Xcode可以把那些已经release掉得对象，变成“僵尸”，当我们�
 
 图16
 
-![](http://daiweilai.github.io/img/post/2015-4-13-pic16.png)
+![](https://daiweilai.github.io/img/post/2015-4-13-pic16.png)
 
 我们家的编译器历史 敬请乱入 《iOS中的预编译指令的初步探究》 ，没错我们现在正在使用着世界上最好的c、c++、oc、swift的编译器——LLVM,lldb就是这个世界上最好的LLVM的调试器！不要害羞，因为我们是最优秀的！所以肯定要用最好的！千万别客气哟，随便用，就像自己家一样啊，啊 哈哈 吃吃吃 别只顾着吃饭，多夹菜……哎~博主好客的职业病又犯了~，什么？你不知道在哪里用lldb？
 
@@ -296,7 +296,7 @@ Xcode可以把那些已经release掉得对象，变成“僵尸”，当我们�
 
 图18
 
-![](http://daiweilai.github.io/img/post/2015-4-13-pic18.png)
+![](https://daiweilai.github.io/img/post/2015-4-13-pic18.png)
 
 是不是方便到爆炸？
 
@@ -332,7 +332,7 @@ lldb真的很强大，博主没有骗你，这篇博文到此的所有调试技�
 
 图19
 
-![](http://daiweilai.github.io/img/post/2015-4-13-pic19.png)
+![](https://daiweilai.github.io/img/post/2015-4-13-pic19.png)
 
 
 
@@ -344,13 +344,13 @@ instrument里面包含了很多工具，内存溢出分析，性能分析，各�
 
 图20
 
-![](http://daiweilai.github.io/img/post/2015-4-13-pic20.png)
+![](https://daiweilai.github.io/img/post/2015-4-13-pic20.png)
 
 在使用leaks之前大家可以试试这个“Analyze”
 
 图21
 
-![](http://daiweilai.github.io/img/post/2015-4-13-pic21.png)
+![](https://daiweilai.github.io/img/post/2015-4-13-pic21.png)
 
 analyze可以快速的发现你的代码中release的问题，以及继承过程中的父类方法缺失等等问题！一般一个优秀的iOS开发工程师No Warning、Pass Analyze是最基本的操守！我知道你已经对于你自己的项目的上百个warning已经麻木了，但博主我负责人地告诉你，这样不好！，因为有一首云南民歌《老司机带带我》听得博主神清气爽！
 
@@ -362,13 +362,13 @@ analyze可以快速的发现你的代码中release的问题，以及继承过程
 
 图22
 
-![](http://daiweilai.github.io/img/post/2015-4-13-pic22.png)
+![](https://daiweilai.github.io/img/post/2015-4-13-pic22.png)
 
 如果提示某一个对象有侧漏的风险，你还可以这样弹出侧边的拓展细节
 
 图23
 
-![](http://daiweilai.github.io/img/post/2015-4-13-pic23.png)
+![](https://daiweilai.github.io/img/post/2015-4-13-pic23.png)
 
 直接点击方法就可以直接进入代码部分了！！
 
@@ -400,7 +400,7 @@ analyze可以快速的发现你的代码中release的问题，以及继承过程
 
 图24
 
-![](http://daiweilai.github.io/img/post/2015-4-13-pic24.png)
+![](https://daiweilai.github.io/img/post/2015-4-13-pic24.png)
 
 很快会注意到用户界面中存在问题-表视图中没有展示任何数据。在工程导航面板中打开`FirstViewController.swift`并找到以下代码：
 
@@ -433,7 +433,7 @@ self.tableView.reloadData()
 
 图25
 
-![](http://daiweilai.github.io/img/post/2015-4-13-pic25.png)
+![](https://daiweilai.github.io/img/post/2015-4-13-pic25.png)
 
 启动视图调试后，Xcode会对应用程序的视图层次拍一个快照并展示三维原型视图来探究用户界面的层级。该三维视图除了展示app的视图层次外，还展示每个视图的位置、顺序和视图尺寸，以及视图间的交互方式。
 
@@ -441,13 +441,13 @@ self.tableView.reloadData()
 
 图26
 
-![](http://daiweilai.github.io/img/post/2015-4-13-pic26.png)
+![](https://daiweilai.github.io/img/post/2015-4-13-pic26.png)
 
 暂停应用程序调试并在左侧选中Main.Storyboard来修复问题。点击表视图并选中Editor > Resolve Auto Layout Issues > Reset to Suggested Constraints.
 
 图27
 
-![](http://daiweilai.github.io/img/post/2015-4-13-pic27.png)
+![](https://daiweilai.github.io/img/post/2015-4-13-pic27.png)
 
 编译并再次运行应用程序以确定用户界面展示正常。点击Debug View Hierarchy按钮更进一步了解视图调试的功能。
 
@@ -459,7 +459,7 @@ self.tableView.reloadData()
 
 图28
 
-![](http://daiweilai.github.io/img/post/2015-4-13-pic28.png)
+![](https://daiweilai.github.io/img/post/2015-4-13-pic28.png)
 
 Object 和 Size检查器包括大量有用的信息。过去开发者需要依赖日志语句或者断点来检查视图的配置。
 
@@ -467,13 +467,13 @@ Object 和 Size检查器包括大量有用的信息。过去开发者需要依�
 
 图29
 
-![](http://daiweilai.github.io/img/post/2015-4-13-pic29.png)
+![](https://daiweilai.github.io/img/post/2015-4-13-pic29.png)
 
 在Xcode的调试区有9个视图调试过程中要用到的按钮和滑块儿。
 
 图30
 
-![](http://daiweilai.github.io/img/post/2015-4-13-pic30.png)
+![](https://daiweilai.github.io/img/post/2015-4-13-pic30.png)
 
 从左到右控件排序：
 
@@ -505,13 +505,13 @@ Object 和 Size检查器包括大量有用的信息。过去开发者需要依�
 
 图31
 
-![](http://daiweilai.github.io/img/post/2015-4-13-pic31.png)
+![](https://daiweilai.github.io/img/post/2015-4-13-pic31.png)
 
 这样一来，不同视图间的间距变大了，层次也更加清晰，我们看到在图片"下方"还隐藏着另一个视图，选中隐藏的视图，它就是"丢失"的视觉效果视图。
 
 图32
 
-![](http://daiweilai.github.io/img/post/2015-4-13-pic32.png)
+![](https://daiweilai.github.io/img/post/2015-4-13-pic32.png)
 
 打开Main.storyboard 并选中Second View Controller Scene。在左侧的文档概览面板中，展开Second View Controller的视图对象以查看子视图的排序。
 
@@ -521,7 +521,7 @@ Xcode在文档概览中按照递升顺序堆叠视图，换句话说，列表顶
 
 图33
 
-![](http://daiweilai.github.io/img/post/2015-4-13-pic33.png)
+![](https://daiweilai.github.io/img/post/2015-4-13-pic33.png)
 
 再次运行应用程序就能看到模糊效果了。应用程序的用户界面看起来符合设计的初衷。我们还可以查看iOS模拟器的其他调试功能，看看还完善了其他什么地方或功能。
 
@@ -531,13 +531,13 @@ Xcode在文档概览中按照递升顺序堆叠视图，换句话说，列表顶
 
 图34
 
-![](http://daiweilai.github.io/img/post/2015-4-13-pic34.png)
+![](https://daiweilai.github.io/img/post/2015-4-13-pic34.png)
 
 然后会看到app的用户界面被红色和绿色覆盖，显示了哪些图层可以被叠加覆盖，以及哪些图层是透明的。混合层属于计算密集型视图，所以推荐尽可能地使用不透明的图层。
 
 图35
 
-![](http://daiweilai.github.io/img/post/2015-4-13-pic35.jpg)
+![](https://daiweilai.github.io/img/post/2015-4-13-pic35.jpg)
 
 苹果在其文档（iOS Simulator User Guide）中对此进行了注明，并在表视图处理上使用了不透明图层。滚动视图时会有些表现不大好的地方，一个重要的原因就是使用了混合图层，而如果内容背景是不透明层，那么页面滚动效果就会非常流畅和平稳。
 
@@ -547,7 +547,7 @@ Xcode在文档概览中按照递升顺序堆叠视图，换句话说，列表顶
 
 图36
 
-![](http://daiweilai.github.io/img/post/2015-4-13-pic36.png)
+![](https://daiweilai.github.io/img/post/2015-4-13-pic36.png)
 
 在启用Color Blended Layers的状态下编译并运行应用程序。由于表视图单元格现在使用了不透明层，所以会用绿色覆盖，以指示它们是不透明的。
 
@@ -567,7 +567,7 @@ Color Off Screen Rendered:.该选项为离屏渲染内容添加一个黄色的�
 
 图37
 
-![](http://daiweilai.github.io/img/post/2015-4-13-pic37.png)
+![](https://daiweilai.github.io/img/post/2015-4-13-pic37.png)
 
 除了给视图着色外，还要记住iOS模拟器也可以调试Core Location问题。你可以在特定经纬度模拟设备，
 

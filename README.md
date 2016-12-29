@@ -1,6 +1,6 @@
 # DavidDay's Blog
 
-### [View Blog →](http://daiweilai.github.io)
+### [View Blog →](https://daiweilai.github.io)
 
 ## Document
 
@@ -20,7 +20,7 @@ header-img: img/common/home-bg.jpg
 email: daiweilai@foxmail.com
 description: "在这里探索iOS的一切。"
 keyword: ""
-url: "http://daiweilai.github.io"              # your host, for absolute URL
+url: "https://daiweilai.github.io"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
 
 
@@ -72,7 +72,7 @@ duoshuo_share: true                     # set to false if you want to use Commen
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "正在努力探索iOS开发的最佳实践。"
-sidebar-avatar: http://daiweilai.github.io/img/common/avatar.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-avatar: https://daiweilai.github.io/img/common/avatar.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 

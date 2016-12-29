@@ -22,7 +22,7 @@ tags:
 
 上图1
 
-![](http://daiweilai.github.io/img/post/2015-1-29-pic1.gif)
+![](https://daiweilai.github.io/img/post/2015-1-29-pic1.gif)
 
 这个我叫它DDClock，所有view都使用Quartz 2D绘制，创建后自动与当前系统对时同步，漂亮、精致、优雅…… （如果你看到这里，你说不漂亮、不精致、不优雅，那么请你出去，我担心我会下手过重，呵呵），想知道怎么弄得？别急！让博主带你手拿菜刀砍电线，一路火光加闪电！！！
 
@@ -58,7 +58,7 @@ tags:
 
 Nice！！来看看我们的工程目录结构 图2
 
-![](http://daiweilai.github.io/img/post/2015-1-29-pic2.png)
+![](https://daiweilai.github.io/img/post/2015-1-29-pic2.png)
 
 好！我们要开始写代码咯
 
@@ -66,7 +66,7 @@ Nice！！来看看我们的工程目录结构 图2
 //
 //  DDClock.h
 //  Created by David on 15/1/26.
-//  博客：http://daiweilai.github.io
+//  博客：https://daiweilai.github.io
 //  github：https://github.com/daiweilai/
 //  Copyright (c) 2015年 DavidDay. All rights reserved.
 // 
@@ -109,7 +109,7 @@ typedef NS_ENUM(NSUInteger, DDClockTheme) { //弄一个枚举类型用来更改�
 //
 //  DDClock.m
 //  Created by David on 15/1/26.
-//  博客：http://daiweilai.github.io
+//  博客：https://daiweilai.github.io
 //  github：https://github.com/daiweilai/
 //  Copyright (c) 2015年 DavidDay. All rights reserved.
 //
@@ -675,7 +675,7 @@ xcode6.1 SDK8.1测试没问题！
 
 图3
 
-![](http://daiweilai.github.io/img/post/2015-1-29-pic3.png)
+![](https://daiweilai.github.io/img/post/2015-1-29-pic3.png)
 
 为何要称PaintCode为终极大杀器？因为它真的很凶！如果说我们刚刚的项目需要花2~3个小时才能完成 而有了PaintCode之后我们只需要10~20分钟！！！就问你怕不怕！！！
 
@@ -691,7 +691,7 @@ xcode6.1 SDK8.1测试没问题！
 
 图4
 
-![](http://daiweilai.github.io/img/post/2015-1-29-pic4.png)
+![](https://daiweilai.github.io/img/post/2015-1-29-pic4.png)
 
 就像PS一样只要你画的出，就能生成代码（支持swift哦）
 
@@ -701,19 +701,19 @@ xcode6.1 SDK8.1测试没问题！
 
 图5
 
-![](http://daiweilai.github.io/img/post/2015-1-29-pic5.png)
+![](https://daiweilai.github.io/img/post/2015-1-29-pic5.png)
 
 按住shift键拖出一个规则的圆形 ，填充颜色，这个就是代码中的rimPath
 
 图6
 
-![](http://daiweilai.github.io/img/post/2015-1-29-pic6.png)
+![](https://daiweilai.github.io/img/post/2015-1-29-pic6.png)
 
 再次选中Oval，同样的方法在拖一个圆出来，
 
 图7
 
-![](http://daiweilai.github.io/img/post/2015-1-29-pic7.png)
+![](https://daiweilai.github.io/img/post/2015-1-29-pic7.png)
 
 这个就是代码中的facePath。
 
@@ -725,63 +725,63 @@ xcode6.1 SDK8.1测试没问题！
 
 图8
 
-![](http://daiweilai.github.io/img/post/2015-1-29-pic8.png)
+![](https://daiweilai.github.io/img/post/2015-1-29-pic8.png)
 
 拖出其中的一个小刻度 
 
 图9
 
-![](http://daiweilai.github.io/img/post/2015-1-29-pic9.png)
+![](https://daiweilai.github.io/img/post/2015-1-29-pic9.png)
 
 然后选中这个小刻度复制出另一个小刻度，放到第一个刻度的对面，就像这样
 
 图10
 
-![](http://daiweilai.github.io/img/post/2015-1-29-pic10.png)
+![](https://daiweilai.github.io/img/post/2015-1-29-pic10.png)
 
 然后按住shift键 同时选中这两个小刻度，点击工具栏的Union
 
 图11
 
-![](http://daiweilai.github.io/img/post/2015-1-29-pic11.png)
+![](https://daiweilai.github.io/img/post/2015-1-29-pic11.png)
 
 这样两个小刻度就成为了一个对象，这时点击右侧的Transforms，就会出现旋转图形的操作，把旋转中心（图12中绿色的瞄准星）拖到钟表的中心位置
 
 图12
 
-![](http://daiweilai.github.io/img/post/2015-1-29-pic12.png)
+![](https://daiweilai.github.io/img/post/2015-1-29-pic12.png)
 
  这样设置Rotation的参数就可以围绕整个钟表旋转这个刻度了，所以马上同时复制这个刻度5份，分别操作旋转，让它们分别旋转30、60、90、120、150这样所有的刻度都出来了，然后再一次性的选中所有刻度Union一次，把所有刻度合并成一个图形。
 
 图13
 
-![](http://daiweilai.github.io/img/post/2015-1-29-pic13.png)
+![](https://daiweilai.github.io/img/post/2015-1-29-pic13.png)
 
 接下来就选中Text工具
 
 图14
 
-![](http://daiweilai.github.io/img/post/2015-1-29-pic14.png)
+![](https://daiweilai.github.io/img/post/2015-1-29-pic14.png)
 
 选中恰当的字体和大小，画出刻度值和上下午提示的AM/PM
 
 图15
 
-![](http://daiweilai.github.io/img/post/2015-1-29-pic15.png)
+![](https://daiweilai.github.io/img/post/2015-1-29-pic15.png)
 
 最后是时针、分针和秒针了，做法是雷同的，聪明的你肯定知道该怎么做了，反正就是使用规则图形，通过Union、Intersection、Difference的操作产生不规则的图形
 
 图16
 
-![](http://daiweilai.github.io/img/post/2015-1-29-pic16.png)
+![](https://daiweilai.github.io/img/post/2015-1-29-pic16.png)
 
 图17
 
-![](http://daiweilai.github.io/img/post/2015-1-29-pic17.png)
+![](https://daiweilai.github.io/img/post/2015-1-29-pic17.png)
 
 图18
 
-![](http://daiweilai.github.io/img/post/2015-1-29-pic18.png)
+![](https://daiweilai.github.io/img/post/2015-1-29-pic18.png)
 
 
 

@@ -15,7 +15,7 @@ tags:
 
 图1
 
-![](http://daiweilai.github.io/img/post/2015-11-11-pic1.png)
+![](https://daiweilai.github.io/img/post/2015-11-11-pic1.png)
 
  半年时间，反正撸啊撸段位已经是万劫不复了，iOS9一发布加班的觉悟早有了，潜伏的XCodeGhost也被拎出来了，各种被脱裤的同行大佬们也是尿了一地，哥也被吓了一哆嗦，赶忙修改了1024的账号密码…… 2015年就是伴随这些琐事发展着，但是博主作为一个初入职场半年的工作总结当然不会是简单地流水账。
 
@@ -47,7 +47,7 @@ tags:
 
 再一个就是大婶们的博客，一天不读都浑身难受！
 
-之前拜阅[唐巧Boy](http://blog.devtang.com/){:target="_blank"}的新书的时候，有一个博客列表非常不错，强势插入我的[Feedly](http://feedly.com/){:target="_blank"}列表，我自己也有一些关注的大婶也加入了列表当中，这里给出分享OPML[拿去玩](http://daiweilai.github.io/attach/feedly.opml)。
+之前拜阅[唐巧Boy](http://blog.devtang.com/){:target="_blank"}的新书的时候，有一个博客列表非常不错，强势插入我的[Feedly](http://feedly.com/){:target="_blank"}列表，我自己也有一些关注的大婶也加入了列表当中，这里给出分享OPML[拿去玩](https://daiweilai.github.io/attach/feedly.opml)。
 
 沙龙、研讨什么的可以适当参加，看看荧幕外的世界，不要老说没有搞iOS的姑娘。
 
@@ -69,7 +69,7 @@ tags:
 
  图2
 
-![](http://daiweilai.github.io/img/post/2015-11-11-pic2.jpg)
+![](https://daiweilai.github.io/img/post/2015-11-11-pic2.jpg)
 
  举一个简单地例子吧
 
@@ -105,7 +105,7 @@ tags:
   
   图2
   
-  ![](http://daiweilai.github.io/img/post/2015-11-11-pic3.jpg)
+  ![](https://daiweilai.github.io/img/post/2015-11-11-pic3.jpg)
 
 
 * 尝试全键盘操作，多记记几个快捷键世界就安静了，反正博主的magic mouse干电池已扣，什么你的是最新款的鼠标没干电池？那为了你的健康着想拿给博主用吧，可减少手腕以及肩膀劳损的风险。这里分享一个Mac屏幕效率工具[SizeUp](http://www.irradiatedsoftware.com/){:target="_blank"} 可减少鼠标的使用！
@@ -124,7 +124,7 @@ tags:
 
 ## 后记
 
-博主新开了一个博客系统，托管在了Github.io上，喜闻乐见的Jekll加借鉴~~(抄袭)~~的精美主题构建而成，反正样子应该还看得过去，如果有朋友有兴趣想了解iOS程序员为何日撸万行代码？数百奇巧淫技如何施展？无数干货为何频频送出？究竟编译器背后又隐藏着什么？这一切的背后是技术与生活的碰撞还是高效与投机的权衡？我真TM编不下去了，欢迎前往 [[任意门]](http://daiweilai.github.io){:target="_blank"}围观。
+博主新开了一个博客系统，托管在了Github.io上，喜闻乐见的Jekll加借鉴~~(抄袭)~~的精美主题构建而成，反正样子应该还看得过去，如果有朋友有兴趣想了解iOS程序员为何日撸万行代码？数百奇巧淫技如何施展？无数干货为何频频送出？究竟编译器背后又隐藏着什么？这一切的背后是技术与生活的碰撞还是高效与投机的权衡？我真TM编不下去了，欢迎前往 [[任意门]](https://daiweilai.github.io){:target="_blank"}围观。
 
 严肃地，如果你刚开始学习iOS开发或许可以从博主这里得到一些半干货。
 

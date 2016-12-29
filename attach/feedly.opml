@@ -47,7 +47,7 @@
             <outline type="rss" text="土土哥的技术Blog" title="土土哥的技术Blog" xmlUrl="http://tutuge.me/atom.xml" htmlUrl="http://tutuge.me/"/>
             <outline type="rss" text="I'm Allen" title="I'm Allen" xmlUrl="http://www.imallen.com/atom.xml" htmlUrl="http://imallen.com/"/>
             <outline type="rss" text="I'm TualatriX" title="I'm TualatriX" xmlUrl="http://imtx.me/feed/latest/" htmlUrl="http://imtx.me/"/>
-            <outline type="rss" text="DavidDay’s Blog" title="DavidDay’s Blog" xmlUrl="http://daiweilai.github.io/feed.xml" htmlUrl="http://daiweilai.github.io/"/>
+            <outline type="rss" text="DavidDay’s Blog" title="DavidDay’s Blog" xmlUrl="https://daiweilai.github.io/feed.xml" htmlUrl="https://daiweilai.github.io/"/>
             <outline type="rss" text="王中周的技术博客" title="王中周的技术博客" xmlUrl="http://wangzz.github.io/atom.xml" htmlUrl="http://wangzz.github.io/"/>
             <outline type="rss" text="Nico" title="Nico" xmlUrl="http://blog.inico.me/atom.xml" htmlUrl="http://www.taofengping.com"/>
             <outline type="rss" text="刘坤的技术博客" title="刘坤的技术博客" xmlUrl="http://blog.cnbluebox.com/atom.xml" htmlUrl="http://blog.cnbluebox.com/"/>

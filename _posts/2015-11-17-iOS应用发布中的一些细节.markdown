@@ -19,7 +19,7 @@ tags:
 
 图0
 
-![](http://daiweilai.github.io/img/post/2015-11-17-pic0.png)
+![](https://daiweilai.github.io/img/post/2015-11-17-pic0.png)
 
 威武！
 
@@ -55,7 +55,7 @@ Xcode中 `Target -> General`中的`bundle identifier` ;
 
 图1
 
-![](http://daiweilai.github.io/img/post/2015-11-17-pic1.png)
+![](https://daiweilai.github.io/img/post/2015-11-17-pic1.png)
 
 * `根证书`是与开发者或者企业对应的，只要是被`根证书`签名的App都可以理解为是这个证书对应的开发者开发的。所以一个`根证书`可以签名多个App。
 
@@ -66,7 +66,7 @@ Xcode中 `Target -> General`中的`bundle identifier` ;
 
 图2
 
-![](http://daiweilai.github.io/img/post/2015-11-17-pic2.png)
+![](https://daiweilai.github.io/img/post/2015-11-17-pic2.png)
 
 图中我的这个账号默认会有两个不同用途的`根证书`，有两个App，分别为App1、APP2，以及它们对应的两种用途的推送证书(属于`其他证书`)。
 
@@ -86,7 +86,7 @@ profile(描述文件)下文还有篇幅介绍。
 
 图3
 
-![](http://daiweilai.github.io/img/post/2015-11-17-pic3.png)
+![](https://daiweilai.github.io/img/post/2015-11-17-pic3.png)
 
 在这里声明一下，`其他证书`其他证书生成的时候，使用的`certSigningRequest`文件可以和产生`根证书`的`certSigningRequest`的不一致，也就是说产生`其他证书`时不一定需要产生`根证书`的电脑，所以这里也坑了无数的人调试推送，这个在下文[推送的那些事](#推送的一切)详细填坑。
 
@@ -96,7 +96,7 @@ profile(描述文件)下文还有篇幅介绍。
 
 图4
 
-![](http://daiweilai.github.io/img/post/2015-11-17-pic4.png)
+![](https://daiweilai.github.io/img/post/2015-11-17-pic4.png)
 
 我想这个界面一弹出来的时候，蛋蛋忧伤迎面扑来。然后怒点 `Fix issue`，然后你们团队负责管理证书的基友突然发现证书中心多了好多好乱的证书以及描述文件，然后他爆了一句：what the huck！删掉了带有`Xcode *`的证书以及描述文件，然后自己又暴力的点了一发`Fix issue`，然后你突然调试不了了，再暴击`Fix issue`键，最后整个团队都只有通过`Fix issue`来真机调试了……。
 
@@ -108,7 +108,7 @@ profile(描述文件)下文还有篇幅介绍。
 
 图5
 
-![](http://daiweilai.github.io/img/post/2015-11-17-pic5.png)
+![](https://daiweilai.github.io/img/post/2015-11-17-pic5.png)
 
 * 其实描述文件工作的原理就是在APP打包或者真机调试的时候，让Xcode去检查描述文件里面的BundleID与这个APP的BundleID是否对应。
 * 对应的话就会去`keyChain`查找有没有相应地证书(所以证书要下载好，并且导入`keyChain`)
@@ -256,7 +256,7 @@ Message successfully delivered
 
 图6
 
-![](http://daiweilai.github.io/img/post/2015-11-17-pic6.gif)
+![](https://daiweilai.github.io/img/post/2015-11-17-pic6.gif)
 
 随时build随时转ipa。
 

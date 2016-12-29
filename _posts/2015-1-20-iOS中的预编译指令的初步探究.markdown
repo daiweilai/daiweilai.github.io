@@ -21,19 +21,19 @@ tags:
 
 *图1*
 
-![](http://daiweilai.github.io/img/post/2015-1-20-pic1.png)
+![](https://daiweilai.github.io/img/post/2015-1-20-pic1.png)
 
 带你们看计算机程序执行过程之前，我们要严肃的了解一点程序的编译，也就是上图中的，我们把老婆的命令转换成电信号的过程。在计算机世界中有些好事者把这个玩意儿称作编译器(compiler)，什么gcc呀clang呀阿拉巴拉，说的编译器这名字逼格好高~其实说白了就是个翻译的东西，如我们人执行程序过程中，把老婆的话(也是人类的话)翻译成大脑懂的话(电波)，在计算机中就是把各种编程语言(c、c++、oc……)翻译成0101011……让计算机懂。编译器的工作原理基本上都是三段式的，可以分为前端（Frontend）、优化器（Optimizer）、后端（Backend）。前端负责解析源代码，检查语法错误，并将其翻译为抽象的语法树（Abstract Syntax Tree）。优化器对这一中间代码进行优化，试图使代码更高效。后端则负责将优化器优化后的中间代码转换为目标机器的代码，这一过程后端会最大化的利用目标机器的特殊指令，以提高代码的性能。
 
 *图2*
 
-![](http://daiweilai.github.io/img/post/2015-1-20-pic2.png)
+![](https://daiweilai.github.io/img/post/2015-1-20-pic2.png)
 
 为什么要弄成这三段式的呢？我肯定不会从什么框架、结构啊优化……角度说起，因为我也不懂呀，哈哈 不过我可以讲一个过去的故事给大家，大家试想一下编译器是怎么开发出来的呀，好家伙，上网一搜LLVM编译器是C++写的，那c++的编译器呢？其实不用那么麻烦，现在把你的手借给我，让我牵着你回到上个世纪70年代，里奇正在为他新发明的C语言在写编译器呢，他在用汇编语言！汇编语言怎么编译变成二进制流呢？答案是使用01011机器码编写的编译器；所以编译器和计算机语言的进步就像这样迭代发展的，再之后是用高级语言写更高级的编译器，高级的编译器能编译更高级的计算机语言……，虽然蓝翔的挖掘机技术强，但问题还是来了，世界上计算机那么多，各种不同的架构，人还好基本架构都一样，但是计算机有Intel架构的又有ARM架构，怎么能让编程语言通过编译分别产生不同架构的执行码呢？所以这就是编译器三段式这种模型的好处了，当我们要支持多种语言时，只需要添加多个前端就可以了。当需要支持多种目标机器时，只需要添加多个后端就可以了。对于中间的优化器，我们可以使用通用的中间代码。gcc可以支持c、c++、java……等语言的编译。
 
 *图3*
 
-![](http://daiweilai.github.io/img/post/2015-1-20-pic3.png)
+![](https://daiweilai.github.io/img/post/2015-1-20-pic3.png)
 
 那么一个HelloWord的程序的编译和执行过程大家就按照图1自行脑补吧
 
@@ -47,7 +47,7 @@ tags:
 
 *图4*
 
-![](http://daiweilai.github.io/img/post/2015-1-20-pic4.png)
+![](https://daiweilai.github.io/img/post/2015-1-20-pic4.png)
 
 不同的编译器，是否对于预处理指令有差异，我也没办法考究了。还有其实、其实人家接触iOS也只有3个月，我开发iOS使用的第一个IDE就是XCode6，如果坑了大家，那就索瑞~~
 
@@ -55,7 +55,7 @@ tags:
 
 *图5*
 
-![](http://daiweilai.github.io/img/post/2015-1-20-pic5.png)
+![](https://daiweilai.github.io/img/post/2015-1-20-pic5.png)
 
 各种编译器的区别还有几本对比知识可以参看[LLVM和GCC的区别](http://www.cnblogs.com/zuopeng/p/4141467.html){:target="_blank"}
 
@@ -79,7 +79,7 @@ tags:
 
 *图6*
 
-![](http://daiweilai.github.io/img/post/2015-1-20-pic6.png)
+![](https://daiweilai.github.io/img/post/2015-1-20-pic6.png)
 
 这个看不懂？你可以等看完#ifndef和#define之后就明白了，大概的原理就是，用宏定义判断一个宏是否定义了，如果没有定义则会定义这个宏，这样以来如果已经包含过则这个宏定义肯定已经定义过了，即使再包含也不会重新定义了，下面的代码也就不会包含进去。
 
@@ -119,7 +119,7 @@ fprintf(stderr, "\n ------------------\n/ Hello David Day! \\\n\\ my Macro Log ~
 
 *图9*
 
-![](http://daiweilai.github.io/img/post/2015-1-20-pic9.png)
+![](https://daiweilai.github.io/img/post/2015-1-20-pic9.png)
 
 ### #undef
 
@@ -223,13 +223,13 @@ DEBUG是xcode的预定义的宏，这个东西多的很呢，要慢慢挖掘呢�
 
 *图10*
 
-![](http://daiweilai.github.io/img/post/2015-1-20-pic10.png)
+![](https://daiweilai.github.io/img/post/2015-1-20-pic10.png)
 
 如果你在Xcode中设置了
 
 *图11*
 
-![](http://daiweilai.github.io/img/post/2015-1-20-pic11.png)
+![](https://daiweilai.github.io/img/post/2015-1-20-pic11.png)
 
 如果你设置成Yes，那么你的waring就等于error，编译不了的哦。
 
@@ -257,11 +257,11 @@ DEBUG是xcode的预定义的宏，这个东西多的很呢，要慢慢挖掘呢�
 
 *图12*
 
-![](http://daiweilai.github.io/img/post/2015-1-20-pic12.png)
+![](https://daiweilai.github.io/img/post/2015-1-20-pic12.png)
 
 *图13*
 
-![](http://daiweilai.github.io/img/post/2015-1-20-pic13.png)
+![](https://daiweilai.github.io/img/post/2015-1-20-pic13.png)
 
 在方法导航哪里就会出现你的mark了 是不是很方便呀
 
@@ -281,7 +281,7 @@ DEBUG是xcode的预定义的宏，这个东西多的很呢，要慢慢挖掘呢�
 
 *图14*
 
-![](http://daiweilai.github.io/img/post/2015-1-20-pic14.png)
+![](https://daiweilai.github.io/img/post/2015-1-20-pic14.png)
 
 自动分隔开了！！！
 
